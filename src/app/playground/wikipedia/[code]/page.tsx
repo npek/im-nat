@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import Header from "../../../components/Header";
 import wtf from "wtf_wikipedia";
@@ -26,7 +25,7 @@ export default function WikipediaArticle() {
 
     let doc;
     if (Array.isArray(result)) {
-      doc = result[0]; // or another item if you want
+      doc = result[0];
     } else if (result !== null) {
       doc = result;
     }

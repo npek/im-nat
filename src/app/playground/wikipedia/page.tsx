@@ -1,7 +1,6 @@
 "use client";
 
 import Header from "../../components/Header";
-import wtf from "wtf_wikipedia";
 import Link from "next/link";
 
 export default function Wikipedia() {

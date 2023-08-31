@@ -3,7 +3,6 @@ import Header from "../components/Header";
 
 export default function Resume() {
   return (
-    // <main className="flex min-h-screen max-h-screen flex-col items-center justify-between bg-dark font-mono">
     <Header>
       <div className="flex flex-col overflow-y-scroll sm:p-24 p-8 pt-32 space-y-12 w-full min-h-screen justify-items-center border-nat-pink border-2">
         <label className="font-silkscreen text-4xl text-nat-pink">
@@ -157,8 +156,6 @@ export default function Resume() {
           </div>
         </div>
       </div>
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex"></div>
     </Header>
-    // </main>
   );
 }
