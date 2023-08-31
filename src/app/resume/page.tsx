@@ -1,13 +1,22 @@
+import Link from "next/link";
 import BulletPoint from "../components/BulletPoint";
 import Header from "../components/Header";
 
 export default function Resume() {
   return (
     <Header>
-      <div className="flex flex-col overflow-y-scroll sm:p-24 p-8 pt-32 space-y-12 w-full min-h-screen justify-items-center border-nat-pink border-2">
-        <label className="font-silkscreen text-4xl text-nat-pink">
+      <div className="flex flex-col overflow-y-scroll sm:p-24 p-8 sm:pt-32 pt-24 space-y-12 w-full min-h-screen justify-items-center border-nat-pink border-2">
+        <label className="font-silkscreen sm:text-5xl text-4xl text-nat-pink -mb-4">
           Natalie Pekker
         </label>
+        <div className="flex flex-row space-x-8 font-silkscreen sm:text-3xl text-2xl text-nat-pink underline">
+          <a href="mailto:natalie.pekker@gmail.com?subject=Hello&body=Message%20body">
+            <button className="underline">Email Me</button>
+          </a>
+          <Link href="https://www.linkedin.com/in/natalie-pekker/">
+            LinkedIn
+          </Link>
+        </div>
         <div className="flex sm:flex-row flex-col sm:space-x-20 space-x-0 sm:space-y-0 space-y-12">
           <div className="flex flex-col min-w-fit space-y-12">
             <div className="flex flex-col">
