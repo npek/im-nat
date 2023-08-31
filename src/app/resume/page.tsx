@@ -5,11 +5,11 @@ export default function Resume() {
   return (
     // <main className="flex min-h-screen max-h-screen flex-col items-center justify-between bg-dark font-mono">
     <Header>
-      <div className="flex flex-col overflow-y-scroll p-24 pt-32 space-y-12 w-full min-h-screen justify-items-center border-nat-pink border-2">
+      <div className="flex flex-col overflow-y-scroll sm:p-24 p-8 pt-32 space-y-12 w-full min-h-screen justify-items-center border-nat-pink border-2">
         <label className="font-silkscreen text-4xl text-nat-pink">
           Natalie Pekker
         </label>
-        <div className="flex flex-row space-x-20">
+        <div className="flex sm:flex-row flex-col sm:space-x-20 space-x-0 sm:space-y-0 space-y-12">
           <div className="flex flex-col min-w-fit space-y-12">
             <div className="flex flex-col">
               <label className="font-silkscreen text-3xl text-nat-pink pb-6">
@@ -128,6 +128,30 @@ export default function Resume() {
               </BulletPoint>
               <BulletPoint>
                 Served as a lead for the mental health employee resource group.
+              </BulletPoint>
+            </div>
+            <div className="flex flex-col">
+              <label className="font-bold text-xl text-nat-pink">
+                iOS Software Engineering Intern
+              </label>
+              <label className="text-xl text-nat-pink pb-2">
+                Coinbase, June 2018 - August 2018
+              </label>
+              <BulletPoint>3rd iOS engineer on the Consumer team.</BulletPoint>
+              <BulletPoint>
+                Built an identity verification flow for European users.
+              </BulletPoint>
+            </div>
+            <div className="flex flex-col">
+              <label className="font-bold text-xl text-nat-pink">
+                iOS Software Engineering Intern
+              </label>
+              <label className="text-xl text-nat-pink pb-2">
+                OpenTable, June 2017 - August 2017
+              </label>
+              <BulletPoint>
+                Worked on iOS/Swift + Objective-C for the Guest Center
+                application.
               </BulletPoint>
             </div>
           </div>
