@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Anonymous_Pro, Silkscreen } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 const anonymousPro = Anonymous_Pro({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({
       className={`${anonymousPro.variable} ${silkscreen.variable}`}
     >
       <body>{children}</body>
+      <Analytics />
     </html>
   );
 }
