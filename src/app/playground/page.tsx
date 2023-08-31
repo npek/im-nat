@@ -38,7 +38,7 @@ export default function Playground() {
           href="/playground/wikipedia"
           className="font-silkscreen decoration-3 underline text-4xl text-nat-pink"
         >
-          My favorite Wikipedia articles
+          Wikipedia
         </Link>
       </div>
     </Header>

@@ -10,12 +10,12 @@ export default function Home() {
         <div className="rounded-full border-nat-pink border-2 w-5 h-5" />
         <div className="rounded-full border-nat-pink border-2 w-5 h-5" />
       </div>
-      <div className="flex flex-col p-24 pt-32 space-y-12 w-full min-h-screen justify-items-center border-nat-pink border-2">
+      <div className="flex flex-col sm:p-24 p-12 pt-32 space-y-12 w-full min-h-screen justify-items-center border-nat-pink border-2">
         <label className="font-silkscreen text-4xl text-nat-pink">
           Hi, I'm Natalie Pekker
         </label>
         <label className="font-silkscreen text-4xl text-nat-pink">
-          I’m a senior frontend/mobile engineer
+          I’m a senior frontend / mobile engineer
         </label>
         <Link
           href="/resume"

@@ -58,7 +58,7 @@ export default function WikipediaArticle() {
 
   return (
     <Header>
-      <div className="flex flex-col overflow-y-scroll p-24 pt-32 space-y-12 w-full min-h-screen justify-items-center border-nat-pink border-2">
+      <div className="flex flex-col overflow-y-scroll sm:p-24 p-12 pt-32 space-y-12 w-full min-h-screen justify-items-center border-nat-pink border-2">
         <label className="font-silkscreen text-4xl text-nat-pink">
           {title}
         </label>
