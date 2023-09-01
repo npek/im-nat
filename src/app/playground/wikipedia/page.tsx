@@ -17,14 +17,27 @@ export default function Wikipedia() {
     <Window>
       <div className="flex flex-col space-y-16">
         <div className="flex flex-col space-y-6">
-          <DisplayLabel fontSize="4xl" smallFontSize="2xl">
-            My favorite Wikipedia articles
+          <DisplayLabel fontSize="4xl" smallFontSize="3xl">
+            Nat's Wikipedia
           </DisplayLabel>
-          <DisplayLabel fontSize="2xl" smallFontSize="xl">
-            {"(watch me play around with Wikipedia APIs)"}
+          <DisplayLabel fontSize="2xl">
+            {"(watch me play around with Tailwind CSS and Wikipedia APIs)"}
           </DisplayLabel>
         </div>
+        <div className="flex flex-col space-y-8">
+          <DisplayLabel fontSize="4xl" smallFontSize="3xl">
+            Try searching Wikipedia
+          </DisplayLabel>
+          <SearchBar
+            placeholderText={"Enter query"}
+            onSubmit={handleSearch}
+            disabled={false}
+          />
+        </div>
         <div className="flex flex-col sm:space-y-12 space-y-8">
+          <DisplayLabel fontSize="3xl" smallFontSize="3xl">
+            My favorite Wikipedia articles
+          </DisplayLabel>
           <DisplayLink
             href="/playground/wikipedia/Dancing_mania"
             fontSize="3xl"
@@ -46,16 +59,6 @@ export default function Wikipedia() {
           >
             Dark Matter
           </DisplayLink>
-        </div>
-        <div className="flex flex-col space-y-8">
-          <DisplayLabel fontSize="4xl" smallFontSize="3xl">
-            Want to search something?
-          </DisplayLabel>
-          <SearchBar
-            placeholderText={"Enter query"}
-            onSubmit={handleSearch}
-            disabled={false}
-          />
         </div>
       </div>
     </Window>

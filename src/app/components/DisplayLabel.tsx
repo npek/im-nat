@@ -15,9 +15,9 @@ const DisplayLabel = ({
 }: DisplayLabelProps) => {
   return (
     <label
-      className={`${className ?? ""} font-silkscreen text-${
+      className={`${className ?? ""} font-silkscreen w-fit sm:text-${
         smallFontSize ?? fontSize
-      } sm:text-${fontSize}`}
+      } text-${fontSize}`}
     >
       {children}
     </label>

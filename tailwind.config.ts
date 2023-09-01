@@ -38,6 +38,6 @@ const config: Config = {
     },
   },
   plugins: [],
-  safelist: ['text-4xl', 'text-3xl'],
+  safelist: ['text-4xl', 'text-3xl', 'text-2xl', 'text-xl'],
 }
 export default config
