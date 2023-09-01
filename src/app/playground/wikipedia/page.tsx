@@ -1,37 +1,24 @@
-"use client";
-
-import Header from "../../components/Header";
-import Link from "next/link";
+import DisplayLink from "@/app/components/DisplayLink";
+import Window from "../../components/Window";
+import DisplayLabel from "@/app/components/DisplayLabel";
 
 export default function Wikipedia() {
   return (
-    <Header>
-      <div className="flex flex-col overflow-y-scroll sm:p-24 p-12 pt-32 space-y-12 w-full min-h-screen justify-items-center border-nat-pink border-2">
-        <label className="font-silkscreen text-4xl text-nat-pink -mb-6">
+    <Window>
+      <div className="flex flex-col space-y-12">
+        <DisplayLabel className="-mb-6" fontSize="4xl">
           My favorite Wikipedia articles
-        </label>
-        <label className="font-silkscreen text-2xl text-nat-pink">
+        </DisplayLabel>
+        <DisplayLabel fontSize="2xl">
           {"(watch me play around with Wikipedia APIs)"}
-        </label>
-        <Link
-          href="/playground/wikipedia/Richard_Sorge"
-          className="font-silkscreen decoration-3 underline text-4xl text-nat-pink"
-        >
-          Richard Sorge
-        </Link>
-        <Link
-          href="/playground/wikipedia/DB_Cooper"
-          className="font-silkscreen decoration-3 underline text-4xl text-nat-pink"
-        >
+        </DisplayLabel>
+        <DisplayLink href="/playground/wikipedia/DB_Cooper" fontSize="4xl">
           DB Cooper
-        </Link>
-        <Link
-          href="/playground/wikipedia/Dark_Matter"
-          className="font-silkscreen decoration-3 underline text-4xl text-nat-pink"
-        >
+        </DisplayLink>
+        <DisplayLink href="/playground/wikipedia/Dark_Matter" fontSize="4xl">
           Dark Matter
-        </Link>
+        </DisplayLink>
       </div>
-    </Header>
+    </Window>
   );
 }

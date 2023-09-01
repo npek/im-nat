@@ -1,8 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
-import Header from "../../../components/Header";
+import Window from "../../../components/Window";
 import wtf from "wtf_wikipedia";
 import { useParams } from "next/navigation";
+import DisplayLabel from "@/app/components/DisplayLabel";
 
 interface DocSection {
   title: string | undefined;
@@ -56,17 +57,13 @@ export default function WikipediaArticle() {
   }, []);
 
   return (
-    <Header>
-      <div className="flex flex-col overflow-y-scroll sm:p-24 p-12 pt-32 space-y-12 w-full min-h-screen justify-items-center border-nat-pink border-2">
-        <label className="font-silkscreen text-4xl text-nat-pink">
-          {title}
-        </label>
+    <Window>
+      <div className="flex flex-col space-y-12">
+        <DisplayLabel fontSize="4xl">{title}</DisplayLabel>
         {sections &&
           sections.map((sec, idx) => (
-            <div key={idx} className="section flex flex-col space-y-2">
-              <label className="section-title text-2xl font-silkscreen pb-2">
-                {sec.title}
-              </label>
+            <div key={idx} className="section flex flex-col space-y-4">
+              <DisplayLabel fontSize="2xl">{sec.title}</DisplayLabel>
               <div className="flex flex-col space-y-2">
                 {sec.paragraphs.map((para, pIdx) => (
                   <div key={pIdx} className="flex flex-row">
@@ -77,6 +74,6 @@ export default function WikipediaArticle() {
             </div>
           ))}
       </div>
-    </Header>
+    </Window>
   );
 }
