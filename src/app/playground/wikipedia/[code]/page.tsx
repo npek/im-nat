@@ -11,15 +11,17 @@ interface DocSection {
 }
 
 export default function WikipediaArticle() {
+  const [error, setError] = useState<string | null>(null);
+
   const params = useParams();
   const articleId = params.code;
-
   const [title, setTitle] = useState<string>();
   const [sections, setSections] = useState<DocSection[]>();
 
   const fetchWiki = async () => {
     if (!articleId) {
       console.log("No document found");
+      setError("No article ID found.");
       return;
     }
     let result = await wtf.fetch(articleId);
@@ -49,17 +51,20 @@ export default function WikipediaArticle() {
       setSections(tempSections);
     } else {
       console.log("No document found");
+      setError("Your search returned no results.");
+      return;
     }
   };
 
   useEffect(() => {
     fetchWiki();
-  }, []);
+  });
 
   return (
     <Window>
       <div className="flex flex-col space-y-12">
         <DisplayLabel fontSize="4xl">{title}</DisplayLabel>
+        {error && <DisplayLabel fontSize="4xl">{error}</DisplayLabel>}
         {sections &&
           sections.map((sec, idx) => (
             <div key={idx} className="section flex flex-col space-y-4">

@@ -10,16 +10,16 @@ export default function Resume() {
         <DisplayLabel fontSize="5xl" smallFontSize="4xl">
           Natalie Pekker
         </DisplayLabel>
-        <div className="flex flex-row space-x-8 font-silkscreen sm:text-3xl text-2xl underline">
-          <a href="mailto:natalie.pekker@gmail.com?subject=Hello&body=Message%20body">
-            <button className="underline">Email Me</button>
-          </a>
-          <Link href="https://www.linkedin.com/in/natalie-pekker/">
-            LinkedIn
-          </Link>
-        </div>
         <div className="flex sm:flex-row flex-col sm:space-x-20 space-x-0">
           <div className="flex flex-col min-w-fit space-y-12">
+            <div className="flex flex-col space-y-8 font-silkscreen sm:text-2xl text-xl underline">
+              <a href="mailto:natalie.pekker@gmail.com?subject=Hello&body=Message%20body">
+                <button className="underline">natalie.pekker@gmail.com</button>
+              </a>
+              <Link href="https://www.linkedin.com/in/natalie-pekker/">
+                LinkedIn
+              </Link>
+            </div>
             <div className="flex flex-col text-xl">
               <DisplayLabel className="pb-6" fontSize="3xl">
                 Education

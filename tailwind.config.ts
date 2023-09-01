@@ -34,9 +34,10 @@ const config: Config = {
       animation: {
         fadeIn: 'fadeIn 1s ease-in-out forwards',
         blink: 'blink 1s infinite'
-      }
+      },
     },
   },
   plugins: [],
+  safelist: ['text-4xl', 'text-3xl'],
 }
 export default config
