@@ -1,4 +1,6 @@
+"use client";
 import Link from "next/link";
+import { useGlitch } from "react-powerglitch";
 
 type FontSize = "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
 
@@ -17,8 +19,11 @@ const DisplayLink = ({
   fontSize,
   smallFontSize,
 }: DisplayLinkProps) => {
+  const glitch = useGlitch({ timing: { duration: 5000, iterations: 1 } });
+
   return (
     <Link
+      ref={glitch.ref}
       href={href}
       className={`${
         className ?? ""
