@@ -35,7 +35,9 @@ const Window = ({ children, hideNavigation = false }: WindowProps) => {
         )}
       </div>
       <div
-        className={`flex flex-col sm:p-24 p-8 sm:pt-32 py-24 selection:bg-nat-pink selection:text-dark`}
+        className={`flex flex-col sm:p-24 p-8 sm:pt-32 py-${
+          hideNavigation ? 20 : 24
+        } selection:bg-nat-pink selection:text-dark`}
       >
         {children}
       </div>
