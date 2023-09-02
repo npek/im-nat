@@ -9,7 +9,9 @@ import { useRouter } from "next/navigation";
 export default function Wikipedia() {
   const router = useRouter();
   const handleSearch = async (searchTerm: string) => {
-    let consolidatedTerm = searchTerm.replace(/ /g, "_");
+    let consolidatedTerm = searchTerm
+      .replace(/[^a-zA-Z0-9-_ ]/g, "") // Remove any character that is not a letter, number, hyphen, underscore, or space
+      .replace(/ /g, "_"); // Replace spaces with underscores
     router.push(`/playground/wikipedia/${consolidatedTerm}`);
   };
 

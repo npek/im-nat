@@ -21,8 +21,9 @@ interface DocSentence {
 
 interface DocLink {
   text: string;
-  page: string;
+  page?: string;
   type: string;
+  site?: string;
 }
 
 export default function WikipediaArticle() {
@@ -52,7 +53,7 @@ export default function WikipediaArticle() {
         const href =
           link.type === "internal"
             ? `/playground/wikipedia/${link.page}`
-            : link.page;
+            : link.site;
         processedText.push(
           <a
             className="underline italic"
@@ -104,10 +105,12 @@ export default function WikipediaArticle() {
             return {
               text: s.text(),
               links: s.links().map((l: any) => {
+                console.log(l);
                 return {
                   text: l.text(),
-                  page: l.page().replace(/ /g, "_"),
+                  page: l.page() ? l.page().replace(/ /g, "_") : null,
                   type: l.type(),
+                  site: l.site(),
                 };
               }),
             } as DocSentence;
