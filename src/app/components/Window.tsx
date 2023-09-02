@@ -1,14 +1,12 @@
 "use client";
-import { useRouter } from "next/navigation";
+import Tab, { TabType } from "./Tab";
 
 type WindowProps = {
-  hideNavigation?: Boolean;
   children: React.ReactNode;
+  currentPage?: TabType;
 };
 
-const Window = ({ children, hideNavigation = false }: WindowProps) => {
-  const router = useRouter();
-
+const Window = ({ children, currentPage }: WindowProps) => {
   return (
     <main className="flex min-h-screen min-w-screen max-h-fit max-w-screen overflow-y-scroll flex-col space-y-12 font-mono text-nat-pink border-2 border-t-0 border-nat-pink bg-dark">
       <div className="flex flex-col divide-y-2 divide-nat-pink pr-1 fixed border-nat-pink border-y-2 w-full">
@@ -23,19 +21,27 @@ const Window = ({ children, hideNavigation = false }: WindowProps) => {
             <img src="/icons/exit.svg" />
           </div>
         </div>
-        {!hideNavigation && (
-          <div className="flex flex-row divide-x-2 w-full bg-dark">
-            <button
-              onClick={() => router.push("/")}
-              className="text-lg py-2 px-4 border-r-2 border-nat-pink"
-            >
-              Back
-            </button>
-          </div>
-        )}
+        <div className="flex flex-row divide-x-1 w-full bg-dark">
+          <Tab type={"home"} page="/" isSelected={currentPage == "home"} />
+          <Tab
+            type={"playground"}
+            page="/playground"
+            isSelected={currentPage == "playground"}
+          />
+          <Tab
+            type={"resume"}
+            page="/resume"
+            isSelected={currentPage == "resume"}
+          />
+          <Tab
+            type={"wikipedia"}
+            page="/playground/wikipedia"
+            isSelected={currentPage == "wikipedia"}
+          />
+        </div>
       </div>
       <div
-        className={`flex flex-col sm:p-24 p-8 sm:pt-32 py-24 selection:bg-nat-pink selection:text-dark`}
+        className={`flex flex-col sm:px-24 px-8 sm:py-32 py-20 selection:bg-nat-pink selection:text-dark`}
       >
         {children}
       </div>

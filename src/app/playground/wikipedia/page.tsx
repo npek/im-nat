@@ -14,7 +14,7 @@ export default function Wikipedia() {
   };
 
   return (
-    <Window>
+    <Window currentPage="wikipedia">
       <div className="flex flex-col space-y-16">
         <div className="flex flex-col space-y-6">
           <DisplayLabel fontSize="4xl" smallFontSize="3xl">
