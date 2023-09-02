@@ -24,14 +24,14 @@ const Window = ({ children, currentPage }: WindowProps) => {
         <div className="flex flex-row divide-x-1 w-full bg-dark">
           <Tab type={"home"} page="/" isSelected={currentPage == "home"} />
           <Tab
-            type={"playground"}
-            page="/playground"
-            isSelected={currentPage == "playground"}
-          />
-          <Tab
             type={"resume"}
             page="/resume"
             isSelected={currentPage == "resume"}
+          />
+          <Tab
+            type={"playground"}
+            page="/playground"
+            isSelected={currentPage == "playground"}
           />
           <Tab
             type={"wikipedia"}

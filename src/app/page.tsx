@@ -18,6 +18,9 @@ export default function Home() {
           <DisplayLink fontSize="4xl" href="/playground">
             My playground
           </DisplayLink>
+          <DisplayLink fontSize="4xl" href="https://github.com/npek/im-nat">
+            Github project
+          </DisplayLink>
         </div>
         <DisplayLink
           fontSize="2xl"
