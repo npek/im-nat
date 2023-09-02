@@ -27,7 +27,7 @@ const DisplayLink = ({
       href={href}
       className={`${
         className ?? ""
-      } font-silkscreen w-fit decoration-3 underline sm:text-${fontSize} text-${
+      } font-silkscreen w-fit decoration-3 underline md:text-${fontSize} text-${
         smallFontSize ?? fontSize
       }`}
     >

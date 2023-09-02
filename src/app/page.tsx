@@ -4,8 +4,8 @@ import Window from "./components/Window";
 
 export default function Home() {
   return (
-    <Window hideNavigation={true}>
-      <div className="flex sm:flex-row flex-col justify-between sm:space-y-0 space-y-16">
+    <Window currentPage="home">
+      <div className="flex md:flex-row flex-col justify-between md:space-y-0 space-y-16 md:space-x-4 space-x-0">
         <div className="flex flex-col space-y-8 justify-items-center">
           <DisplayLabel fontSize="4xl">Hi, I'm Natalie Pekker</DisplayLabel>
           <DisplayLabel fontSize="4xl">
