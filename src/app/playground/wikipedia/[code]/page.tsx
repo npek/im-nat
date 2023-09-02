@@ -1,147 +1,25 @@
 "use client";
-import { useEffect, useState } from "react";
 import Window from "../../../components/Window";
-import wtf from "wtf_wikipedia";
 import { useParams } from "next/navigation";
 import DisplayLabel from "@/app/components/DisplayLabel";
-
-interface DocSection {
-  title: string | undefined;
-  paragraphs: DocParagraph[];
-}
-
-interface DocParagraph {
-  sentences: DocSentence[];
-}
-
-interface DocSentence {
-  text: string;
-  links: DocLink[];
-}
-
-interface DocLink {
-  text: string;
-  page?: string;
-  type: string;
-  site?: string;
-}
+import DisplayLink from "@/app/components/DisplayLink";
+import useWiki from "../hooks/useWiki";
+import { processSentence } from "../helpers";
 
 export default function WikipediaArticle() {
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
-
   const params = useParams();
   const articleId = params.code;
-  const [title, setTitle] = useState<string>();
-  const [sections, setSections] = useState<DocSection[]>();
 
-  function processSentence(sentence: DocSentence): JSX.Element {
-    let processedText: JSX.Element[] = [];
-    let currentText = sentence.text;
-
-    sentence.links.forEach((link) => {
-      const linkIndex = currentText.indexOf(link.text);
-      if (linkIndex !== -1) {
-        // Add text before the link
-        processedText.push(
-          <span key={processedText.length}>
-            {currentText.substring(0, linkIndex)}
-          </span>
-        );
-
-        // Add the link
-        const href =
-          link.type === "internal"
-            ? `/playground/wikipedia/${link.page}`
-            : link.site;
-        processedText.push(
-          <a
-            className="underline italic"
-            key={processedText.length}
-            href={href}
-            target={link.type === "internal" ? "_self" : "_blank"}
-            rel="noopener noreferrer"
-          >
-            {link.text}
-          </a>
-        );
-
-        currentText = currentText.substring(linkIndex + link.text.length);
-      }
-    });
-
-    // Add any remaining text
-    processedText.push(<span key={processedText.length}>{currentText}</span>);
-
-    return <>{processedText}</>;
-  }
-
-  const fetchWiki = async () => {
-    if (!articleId) {
-      console.log("No document found");
-      setError("No article ID found.");
-      setLoading(false);
-      return;
-    }
-    let result = await wtf.fetch(articleId);
-
-    let doc;
-    if (Array.isArray(result)) {
-      doc = result[0];
-    } else if (result !== null) {
-      doc = result;
-    }
-
-    if (doc) {
-      setTitle(doc.title() ?? "");
-      var tempSections: DocSection[] = [];
-      doc.sections().forEach((sec) => {
-        if (!Array.isArray(sec.paragraphs())) return;
-
-        let tempParagraphs: DocParagraph[] = [];
-        let paragraphsArray = sec.paragraphs() as any[];
-        paragraphsArray.forEach((p) => {
-          let tempSentences = p.sentences().map((s: any) => {
-            return {
-              text: s.text(),
-              links: s.links().map((l: any) => {
-                console.log(l);
-                return {
-                  text: l.text(),
-                  page: l.page() ? l.page().replace(/ /g, "_") : null,
-                  type: l.type(),
-                  site: l.site(),
-                };
-              }),
-            } as DocSentence;
-          });
-          tempParagraphs.push({ sentences: tempSentences });
-        });
-
-        tempSections.push({
-          title: sec.title(),
-          paragraphs: tempParagraphs,
-        });
-      });
-      setSections(tempSections);
-      setLoading(false);
-    } else {
-      console.log("No document found");
-      setError("Your search returned no results.");
-      setLoading(false);
-      return;
-    }
-  };
-
-  useEffect(() => {
-    fetchWiki();
-  }, []);
+  const { title, sections, suggestedPages, error, loading } =
+    useWiki(articleId);
 
   return (
     <Window>
       <div className="flex flex-col space-y-12">
         <DisplayLabel fontSize="4xl">{title}</DisplayLabel>
-        {loading && <DisplayLabel fontSize="4xl">Loading...</DisplayLabel>}
+        {loading && !error && (
+          <DisplayLabel fontSize="4xl">Loading...</DisplayLabel>
+        )}
         {error && <DisplayLabel fontSize="4xl">{error}</DisplayLabel>}
         {sections &&
           sections.map((sec, idx) => (
@@ -160,6 +38,28 @@ export default function WikipediaArticle() {
               </div>
             </div>
           ))}
+        {suggestedPages && (
+          <div className="flex flex-col space-y-2">
+            <DisplayLabel fontSize="4xl">
+              Your query had no exact matches.
+            </DisplayLabel>
+            <DisplayLabel fontSize="2xl">
+              Here are some suggested pages.
+            </DisplayLabel>
+            <div className="flex flex-col space-y-8 pt-4">
+              {suggestedPages.map((sp, spIdx) => (
+                <DisplayLink
+                  key={spIdx}
+                  href={sp}
+                  fontSize="3xl"
+                  shouldGlitch={false}
+                >
+                  {sp}
+                </DisplayLink>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </Window>
   );

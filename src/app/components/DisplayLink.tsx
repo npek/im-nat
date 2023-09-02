@@ -10,6 +10,7 @@ type DisplayLinkProps = {
   href: string;
   fontSize: FontSize;
   smallFontSize?: FontSize;
+  shouldGlitch?: boolean;
 };
 
 const DisplayLink = ({
@@ -18,12 +19,13 @@ const DisplayLink = ({
   href,
   fontSize,
   smallFontSize,
+  shouldGlitch = true,
 }: DisplayLinkProps) => {
   const glitch = useGlitch({ timing: { duration: 5000, iterations: 1 } });
 
   return (
     <Link
-      ref={glitch.ref}
+      ref={shouldGlitch ? glitch.ref : null}
       href={href}
       className={`${
         className ?? ""
