@@ -3,7 +3,7 @@ import Tab, { TabType } from "./Tab";
 
 type WindowProps = {
   children: React.ReactNode;
-  currentPage: TabType;
+  currentPage?: TabType;
 };
 
 const Window = ({ children, currentPage }: WindowProps) => {
