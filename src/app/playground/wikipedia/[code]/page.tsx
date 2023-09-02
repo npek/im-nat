@@ -100,10 +100,10 @@ export default function WikipediaArticle() {
         let tempParagraphs: DocParagraph[] = [];
         let paragraphsArray = sec.paragraphs() as any[];
         paragraphsArray.forEach((p) => {
-          let tempSentences = p.sentences().map((s) => {
+          let tempSentences = p.sentences().map((s: any) => {
             return {
               text: s.text(),
-              links: s.links().map((l) => {
+              links: s.links().map((l: any) => {
                 return {
                   text: l.text(),
                   page: l.page().replace(/ /g, "_"),

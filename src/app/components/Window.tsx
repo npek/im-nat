@@ -12,10 +12,16 @@ const Window = ({ children, hideNavigation = false }: WindowProps) => {
   return (
     <main className="flex min-h-screen min-w-screen max-h-fit max-w-screen overflow-y-scroll flex-col space-y-12 font-mono text-nat-pink border-2 border-t-0 border-nat-pink bg-dark">
       <div className="flex flex-col divide-y-2 divide-nat-pink pr-1 fixed border-nat-pink border-y-2 w-full">
-        <div className="flex flex-row bg-dark items-center pl-4 space-x-2 h-12">
-          <div className="rounded-full border-nat-pink border-2 w-5 h-5" />
-          <div className="rounded-full border-nat-pink border-2 w-5 h-5" />
-          <div className="rounded-full border-nat-pink border-2 w-5 h-5" />
+        <div className="flex flex-row justify-end bg-dark items-center space-x-2 p-1">
+          <div className="flex items-end border-nat-pink border-2 w-5 h-5 p-0.5">
+            <img src="/icons/minimize.svg" />
+          </div>
+          <div className="flex p-0.5 border-nat-pink border-2 w-5 h-5">
+            <img src="/icons/window.svg" />
+          </div>
+          <div className="border-nat-pink border-2 w-5 h-5 p-0.5">
+            <img src="/icons/exit.svg" />
+          </div>
         </div>
         {!hideNavigation && (
           <div className="flex flex-row divide-x-2 w-full bg-dark">
