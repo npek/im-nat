@@ -11,9 +11,9 @@ const SearchBar = ({ placeholderText, onSubmit, disabled }: SearchBarProps) => {
 
   return (
     <div className="flex flex-row w-full space-x-8">
-      <div className="w-full border-nat-pink border-2">
+      <div className="w-full border-default border-2">
         <input
-          className="w-full p-4 sm:pl-10 pl-6 text-md bg-transparent placeholder:text-nat-pink/50"
+          className="w-full p-4 sm:pl-10 pl-6 text-md bg-transparent placeholder:text-default/50"
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder={placeholderText}
           disabled={disabled}
@@ -21,7 +21,7 @@ const SearchBar = ({ placeholderText, onSubmit, disabled }: SearchBarProps) => {
       </div>
       <button
         onClick={() => onSubmit(searchTerm)}
-        className="border-nat-pink border-2 sm:px-8 px-6"
+        className="border-default border-2 sm:px-8 px-6"
       >
         Search
       </button>
