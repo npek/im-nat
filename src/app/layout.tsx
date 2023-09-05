@@ -31,6 +31,9 @@ export default function RootLayout({
       lang="en"
       className={`${anonymousPro.variable} ${silkscreen.variable}`}
     >
+      <head>
+        <link rel="icon" href="/logo.svg" sizes="any" />
+      </head>
       <body>{children}</body>
       <Analytics />
     </html>
