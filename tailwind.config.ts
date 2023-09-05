@@ -15,7 +15,7 @@ const config: Config = {
       },
       colors: {
         'dark': '#0A0026',
-        'nat-pink': '#DB00FF',
+        'default': '#33FF00',
       },
       fontFamily: {
         'anonymous': ['var(--font-anonymous'],

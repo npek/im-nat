@@ -12,9 +12,6 @@ export default function Wikipedia() {
     let consolidatedTerm = /[^a-zA-Z0-9-_ ]/.test(searchTerm)
       ? searchTerm.replace(/ /g, "_")
       : searchTerm;
-
-    // searchTerm.replace(/[^a-zA-Z0-9-_ ]/g, ""); // Remove any character that is not a letter, number, hyphen, underscore, or space
-    // .replace(/ /g, "_"); // Replace spaces with underscores
     router.push(`/playground/wikipedia/${consolidatedTerm}`);
   };
 

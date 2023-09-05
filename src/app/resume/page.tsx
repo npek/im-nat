@@ -70,7 +70,7 @@ export default function Resume() {
                 {
                   "As a Founding Engineer and sole frontend engineer, built a developer portal in React Typescript with Next.js and Tailwind CSS, as well as a "
                 }
-                <a className="bg-nat-pink">
+                <a className="bg-default">
                   <span className="text-dark bg-clip-text">
                     Postman-like application
                   </span>
@@ -118,7 +118,7 @@ export default function Resume() {
               </BulletPoint>
               <BulletPoint>
                 {"Built "}
-                <a className="bg-nat-pink">
+                <a className="bg-default">
                   <span className="text-dark bg-clip-text">
                     Coinbase Tutorials
                   </span>
