@@ -16,7 +16,7 @@ export default function WikipediaArticle() {
   return (
     <Window>
       <div className="flex flex-col space-y-12">
-        <DisplayLabel fontSize="4xl">{title}</DisplayLabel>
+        <DisplayLabel fontSize="4xl">{title ?? ""}</DisplayLabel>
         {loading && !error && (
           <DisplayLabel fontSize="4xl">Loading...</DisplayLabel>
         )}
@@ -24,7 +24,7 @@ export default function WikipediaArticle() {
         {sections &&
           sections.map((sec, idx) => (
             <div key={idx} className="section flex flex-col space-y-4">
-              <DisplayLabel fontSize="2xl">{sec.title}</DisplayLabel>
+              <DisplayLabel fontSize="2xl">{sec.title ?? ""}</DisplayLabel>
               <div className="flex flex-col space-y-2">
                 {sec.paragraphs.map((para, pIdx) => (
                   <div key={pIdx} className="flex flex-row">

@@ -1,6 +1,4 @@
-"use client";
 import Link from "next/link";
-import { useGlitch } from "react-powerglitch";
 
 type FontSize = "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
 
@@ -19,19 +17,16 @@ const DisplayLink = ({
   href,
   fontSize,
   smallFontSize,
-  shouldGlitch = true,
 }: DisplayLinkProps) => {
-  const glitch = useGlitch({ timing: { duration: 5000, iterations: 1 } });
-
   return (
     <Link
-      ref={shouldGlitch ? glitch.ref : null}
       href={href}
       className={`${
         className ?? ""
-      } font-silkscreen w-fit decoration-3 underline md:text-${fontSize} text-${
+      } glitch h-fit font-silkscreen w-fit decoration-3 underline md:text-${fontSize} text-${
         smallFontSize ?? fontSize
       }`}
+      data-text={typeof children === "string" ? children : undefined}
     >
       {children}
     </Link>

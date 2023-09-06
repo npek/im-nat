@@ -21,11 +21,12 @@ export function processSentence(sentence: DocSentence): JSX.Element {
           : link.site;
       processedText.push(
         <a
-          className="underline italic"
+          className="underline italic glitch"
           key={processedText.length}
           href={href}
           target={link.type === "internal" ? "_self" : "_blank"}
           rel="noopener noreferrer"
+          data-text={link.text}
         >
           {link.text}
         </a>
