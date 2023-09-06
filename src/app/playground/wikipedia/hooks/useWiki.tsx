@@ -4,6 +4,7 @@ import wtf from "wtf_wikipedia";
 export interface DocSection {
   title: string | undefined;
   paragraphs: DocParagraph[];
+  hasTables: boolean;
 }
 
 export interface DocParagraph {
@@ -49,7 +50,21 @@ const useWiki = (articleId: string | string[]) => {
         setTitle(doc.title() ?? "");
         var tempSections: DocSection[] = [];
         doc.sections().forEach((sec) => {
+          let tablesArray = [] as any[];
           if (!Array.isArray(sec.paragraphs())) return;
+
+          if ((sec.paragraphs() as any[]).length == 0) {
+            if (Array.isArray(sec.tables())) {
+              tablesArray = sec.tables() as any[];
+            }
+
+            tempSections.push({
+              title: sec.title(),
+              paragraphs: [],
+              hasTables: tablesArray.length > 0,
+            });
+            return;
+          }
 
           let tempParagraphs: DocParagraph[] = [];
           let paragraphsArray = sec.paragraphs() as any[];
@@ -70,9 +85,17 @@ const useWiki = (articleId: string | string[]) => {
             tempParagraphs.push({ sentences: tempSentences });
           });
 
+          if (Array.isArray(sec.tables())) {
+            tablesArray = sec.tables() as any[];
+          }
+          const noText =
+            tempParagraphs.length == 1 &&
+            tempParagraphs[0].sentences.length == 0;
+
           tempSections.push({
             title: sec.title(),
-            paragraphs: tempParagraphs,
+            paragraphs: noText ? [] : tempParagraphs,
+            hasTables: tablesArray.length > 0,
           });
         });
         setSections(tempSections);
@@ -87,7 +110,11 @@ const useWiki = (articleId: string | string[]) => {
           const tempSuggestions = data.query.search.map((s: any) => {
             return s.title;
           });
-          setSuggestedPages(tempSuggestions);
+          if (tempSuggestions.length > 0) {
+            setSuggestedPages(tempSuggestions);
+          } else {
+            setError("No related articles found.");
+          }
           setLoading(false);
         } catch (err) {
           setError("No related articles found.");

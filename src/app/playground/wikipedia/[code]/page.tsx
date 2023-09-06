@@ -35,23 +35,23 @@ export default function WikipediaArticle() {
                     </div>
                   </div>
                 ))}
+                {sec.paragraphs.length == 0 && sec.hasTables && (
+                  <label className="text-default/70">
+                    Tables are not yet supported on Nat's Wikipedia.
+                  </label>
+                )}
               </div>
             </div>
           ))}
         {suggestedPages && (
-          <div className="flex flex-col space-y-2">
-            <DisplayLabel fontSize="4xl">
-              Your query had no exact matches.
-            </DisplayLabel>
-            <DisplayLabel fontSize="2xl">
-              Here are some suggested pages.
-            </DisplayLabel>
+          <div className="flex flex-col space-y-8">
+            <DisplayLabel fontSize="4xl">Related pages</DisplayLabel>
             <div className="flex flex-col space-y-8 pt-4">
               {suggestedPages.map((sp, spIdx) => (
                 <DisplayLink
                   key={spIdx}
                   href={sp}
-                  fontSize="3xl"
+                  fontSize="2xl"
                   shouldGlitch={false}
                 >
                   {sp}

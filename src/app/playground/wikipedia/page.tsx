@@ -61,6 +61,13 @@ export default function Wikipedia() {
           >
             Dark Matter
           </DisplayLink>
+          <DisplayLink
+            href="/playground/wikipedia/Enron_scandal"
+            fontSize="3xl"
+            smallFontSize="2xl"
+          >
+            Enron Scandal
+          </DisplayLink>
         </div>
       </div>
     </Window>

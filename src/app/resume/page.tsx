@@ -67,15 +67,9 @@ export default function Resume() {
               </label>
               <label className="pb-2">Coherent, October 2022 - July 2023</label>
               <BulletPoint>
-                {
-                  "As a Founding Engineer and sole frontend engineer, built a developer portal in React Typescript with Next.js and Tailwind CSS, as well as a "
-                }
-                <a className="bg-default">
-                  <span className="text-dark bg-clip-text">
-                    Postman-like application
-                  </span>
-                </a>
-                {" to query our API."}
+                As a Founding Engineer and sole frontend engineer, built a
+                developer portal in React Typescript with Next.js and Tailwind
+                CSS, as well as a Postman-like application to query our API."
               </BulletPoint>
               <BulletPoint>
                 Transitioned to backend/data engineering for a quarter, using
@@ -117,15 +111,8 @@ export default function Resume() {
                 React and React Native with a 50/50 time split between the two.
               </BulletPoint>
               <BulletPoint>
-                {"Built "}
-                <a className="bg-default">
-                  <span className="text-dark bg-clip-text">
-                    Coinbase Tutorials
-                  </span>
-                </a>
-                {
-                  " (later known as Earn tutorials) in their very first iteration."
-                }
+                Built Coinbase Tutorials (later known as Earn tutorials) in
+                their very first iteration.
               </BulletPoint>
               <BulletPoint>
                 Served as a lead for the mental health employee resource group.
