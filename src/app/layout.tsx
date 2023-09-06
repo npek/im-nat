@@ -1,4 +1,5 @@
 import "./globals.css";
+import "./css/glitch.css";
 import type { Metadata } from "next";
 import { Anonymous_Pro, Silkscreen } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
