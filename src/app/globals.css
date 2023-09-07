@@ -40,7 +40,7 @@ body {
       rgba(66, 47, 176, 0.1) 50%
   );
   background-size: 100% 6px;
-  z-index: 2;
+  z-index: 100;
   pointer-events: none;
 }
 
