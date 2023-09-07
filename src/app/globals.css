@@ -71,3 +71,15 @@ body {
       bottom: 0%;
   }
 }
+
+::-webkit-scrollbar {
+  width: 0px;  /* For vertical scrollbars */
+  height: 0px; /* For horizontal scrollbars */
+  background: transparent; /* Make the background transparent (in case you want them to simply fade without width) */
+}
+
+/* Hide scrollbar for IE and Edge */
+body {
+  -ms-overflow-style: none;  /* IE 10+ */
+  scrollbar-width: none;     /* Firefox & Edge */
+}

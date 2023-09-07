@@ -8,7 +8,6 @@ type DisplayLinkProps = {
   href: string;
   fontSize: FontSize;
   smallFontSize?: FontSize;
-  shouldGlitch?: boolean;
 };
 
 const DisplayLink = ({
@@ -23,9 +22,9 @@ const DisplayLink = ({
       href={href}
       className={`${
         className ?? ""
-      } glitch h-fit font-silkscreen w-fit decoration-3 underline md:text-${fontSize} text-${
+      } glitch h-fit font-silkscreen w-fit decoration-3 underline text-${
         smallFontSize ?? fontSize
-      }`}
+      } sm:text-${fontSize}`}
       data-text={typeof children === "string" ? children : undefined}
     >
       {children}

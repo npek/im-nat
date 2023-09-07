@@ -19,7 +19,7 @@ export default function Wikipedia() {
     <Window currentPage="wikipedia">
       <div className="flex flex-col space-y-16">
         <div className="flex flex-col space-y-6">
-          <DisplayLabel fontSize="4xl" smallFontSize="3xl">
+          <DisplayLabel fontSize="5xl" smallFontSize="4xl">
             Nat's Wikipedia
           </DisplayLabel>
           <DisplayLabel fontSize="2xl">
@@ -37,7 +37,7 @@ export default function Wikipedia() {
           />
         </div>
         <div className="flex flex-col sm:space-y-12 space-y-8">
-          <DisplayLabel fontSize="3xl" smallFontSize="3xl">
+          <DisplayLabel fontSize="4xl" smallFontSize="3xl">
             My favorite Wikipedia articles
           </DisplayLabel>
           <DisplayLink
