@@ -62,18 +62,18 @@ export default function Wikipedia() {
             Dark Matter
           </DisplayLink>
           <DisplayLink
-            href="/playground/wikipedia/Grigori_Rasputin"
-            fontSize="3xl"
-            smallFontSize="2xl"
-          >
-            Rasputin
-          </DisplayLink>
-          <DisplayLink
             href="/playground/wikipedia/List_of_generic_and_genericized_trademarks"
             fontSize="3xl"
             smallFontSize="2xl"
           >
             List of genericized trademarks
+          </DisplayLink>
+          <DisplayLink
+            href="/playground/wikipedia/Grigori_Rasputin"
+            fontSize="3xl"
+            smallFontSize="2xl"
+          >
+            Rasputin
           </DisplayLink>
           <DisplayLink
             href="/playground/wikipedia/Year_2000_problem"

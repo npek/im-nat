@@ -50,6 +50,8 @@ export default function RootLayout({
         ></script>
         <link rel="apple-touch-icon" href="/nat-preview.png" />
         <meta property="og:image" content="/nat-preview.png"></meta>
+        <meta name="twitter:card" content="I'm Nat" />
+        <meta name="twitter:image" content="/twitter-preview.png" />
       </head>
       <body>{children}</body>
       <Analytics />
