@@ -14,7 +14,7 @@ export default function WikipediaArticle() {
     useWiki(articleId);
 
   return (
-    <Window>
+    <Window pageTitle={title}>
       <div className="flex flex-col space-y-12">
         <DisplayLabel fontSize="4xl">{title ?? ""}</DisplayLabel>
         {loading && !error && (

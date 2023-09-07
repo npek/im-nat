@@ -4,14 +4,16 @@ import Tab, { TabType } from "./Tab";
 type WindowProps = {
   children: React.ReactNode;
   currentPage?: TabType;
+  pageTitle?: string;
 };
 
-const Window = ({ children, currentPage }: WindowProps) => {
+const Window = ({ children, currentPage, pageTitle }: WindowProps) => {
   return (
     <main
       id="screen"
       className="flex min-h-screen min-w-screen max-h-screen max-w-screen overflow-y-scroll flex-col font-mono text-default border-2 border-default bg-dark"
     >
+      {pageTitle && <title>{pageTitle}</title>}
       <div className="scanline z-[75]" />
       <div className="flex flex-col pr-1 fixed border-default border-y-2 w-full z-50">
         <div className="flex flex-row justify-end bg-default items-center space-x-2 p-1">

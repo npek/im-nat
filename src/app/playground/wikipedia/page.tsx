@@ -16,7 +16,7 @@ export default function Wikipedia() {
   };
 
   return (
-    <Window currentPage="wikipedia">
+    <Window currentPage="wikipedia" pageTitle="Nat's Wikipedia">
       <div className="flex flex-col space-y-16">
         <div className="flex flex-col space-y-6">
           <DisplayLabel fontSize="5xl" smallFontSize="4xl">
