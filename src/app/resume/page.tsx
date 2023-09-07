@@ -63,6 +63,8 @@ export default function Resume() {
               <BulletPoint>Next.js</BulletPoint>
               <BulletPoint>REST</BulletPoint>
               <BulletPoint>GraphQL</BulletPoint>
+              <BulletPoint>CocoaPods</BulletPoint>
+              <BulletPoint>Node.js</BulletPoint>
               <BulletPoint>Git</BulletPoint>
               <BulletPoint>SnowflakeDB</BulletPoint>
             </div>

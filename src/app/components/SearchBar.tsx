@@ -30,7 +30,9 @@ const SearchBar = ({ placeholderText, onSubmit, disabled }: SearchBarProps) => {
         onClick={() => onSubmit(searchTerm)}
         className="border-default border-2 sm:px-8 px-6"
       >
-        Search
+        <label className="glitch" data-text="Search">
+          Search
+        </label>
       </button>
     </div>
   );
