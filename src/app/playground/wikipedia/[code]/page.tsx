@@ -25,34 +25,32 @@ export default function WikipediaArticle() {
           sections.map((sec, idx) => (
             <div key={idx} className="section flex flex-col space-y-4">
               <DisplayLabel fontSize="2xl">{sec.title ?? ""}</DisplayLabel>
-              <div className="flex flex-col space-y-2">
-                {sec.paragraphs.map((para, pIdx) => (
-                  <div key={pIdx} className="flex flex-row">
-                    <div>
-                      {para.sentences.map((s, sIdx) => (
-                        <span key={sIdx}>{processSentence(s)} </span>
-                      ))}
-                    </div>
-                    <div className="flex flex-col">
-                      {para.lists.map((l, lIdx) => (
-                        <div key={lIdx} className="flex flex-col">
-                          {l.items.map((li, liIdx) => (
-                            <span key={liIdx}>
-                              {"* "}
-                              {processSentence(li)}
-                            </span>
-                          ))}
-                        </div>
-                      ))}
-                    </div>
+              {sec.paragraphs.map((para, pIdx) => (
+                <div key={pIdx} className="flex flex-col">
+                  <div>
+                    {para.sentences.map((s, sIdx) => (
+                      <span key={sIdx}>{processSentence(s)} </span>
+                    ))}
                   </div>
-                ))}
-                {sec.paragraphs.length == 0 && sec.hasTables && (
-                  <label className="text-default/70">
-                    Tables are not yet supported on Nat's Wikipedia.
-                  </label>
-                )}
-              </div>
+                  <div className="flex flex-col">
+                    {para.lists.map((l, lIdx) => (
+                      <div key={lIdx} className="flex flex-col">
+                        {l.items.map((li, liIdx) => (
+                          <span key={liIdx}>
+                            {"* "}
+                            {processSentence(li)}
+                          </span>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+              {sec.paragraphs.length == 0 && sec.hasTables && (
+                <label className="text-default/70">
+                  Tables are not yet supported on Nat's Wikipedia.
+                </label>
+              )}
             </div>
           ))}
         {suggestedPages && (
