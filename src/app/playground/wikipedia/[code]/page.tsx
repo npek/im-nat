@@ -33,6 +33,18 @@ export default function WikipediaArticle() {
                         <span key={sIdx}>{processSentence(s)} </span>
                       ))}
                     </div>
+                    <div className="flex flex-col">
+                      {para.lists.map((l, lIdx) => (
+                        <div key={lIdx} className="flex flex-col">
+                          {l.items.map((li, liIdx) => (
+                            <span key={liIdx}>
+                              {"* "}
+                              {processSentence(li)}
+                            </span>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 ))}
                 {sec.paragraphs.length == 0 && sec.hasTables && (

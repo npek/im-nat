@@ -9,6 +9,11 @@ export interface DocSection {
 
 export interface DocParagraph {
   sentences: DocSentence[];
+  lists: DocList[];
+}
+
+export interface DocList {
+  items: DocSentence[];
 }
 
 export interface DocSentence {
@@ -82,14 +87,36 @@ const useWiki = (articleId: string | string[]) => {
                 }),
               } as DocSentence;
             });
-            tempParagraphs.push({ sentences: tempSentences });
+
+            let tempLists = p.lists().map((li: any) => {
+              let listSentences = li.data.map((lis: any) => {
+                return {
+                  text: lis.text(),
+                  links: lis.links().map((lisl: any) => {
+                    return {
+                      text: lisl.text(),
+                      page: lisl.page() ? lisl.page().replace(/ /g, "_") : null,
+                      type: lisl.type(),
+                      site: lisl.site(),
+                    };
+                  }),
+                } as DocSentence;
+              });
+              return {
+                items: listSentences,
+              } as DocList;
+            });
+            tempParagraphs.push({ sentences: tempSentences, lists: tempLists });
           });
 
           if (Array.isArray(sec.tables())) {
             tablesArray = sec.tables() as any[];
           }
+          // we cannot render tables yet so we have to handle for edge cases
+          // where there is nothing in a section besides tables
           const noText =
             tempParagraphs.length == 1 &&
+            tempParagraphs[0].lists.length == 0 &&
             tempParagraphs[0].sentences.length == 0;
 
           tempSections.push({
