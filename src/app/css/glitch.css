@@ -7,6 +7,7 @@ Ex:
   position: relative;
   color: #33FF00;
   mix-blend-mode: lighten;
+  z-index: 0;
 }
 
 .glitch:before,

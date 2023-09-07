@@ -13,7 +13,7 @@ const Window = ({ children, currentPage }: WindowProps) => {
       className="flex min-h-screen min-w-screen max-h-screen max-w-screen overflow-y-scroll flex-col font-mono text-default border-2 border-t-0 border-default bg-dark"
     >
       <div className="scanline" />
-      <div className="flex flex-col pr-1 fixed border-default border-y-2 w-full">
+      <div className="flex flex-col pr-1 fixed border-default border-y-2 w-full z-50">
         <div className="flex flex-row justify-end bg-default items-center space-x-2 p-1">
           <div className="flex items-end border-dark border-2 w-5 h-5 p-0.5">
             <img src="/icons/minimize.svg" />
