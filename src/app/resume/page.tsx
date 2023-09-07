@@ -1,15 +1,8 @@
 import BulletPoint from "../components/BulletPoint";
 import DisplayLabel from "../components/DisplayLabel";
 import DisplayLink from "../components/DisplayLink";
-import { useWindowContext } from "../hooks/useWindowContext";
 
 export default function Resume() {
-  // const { setPageTitle } = useWindowContext();
-
-  // useEffect(() => {
-  //   setPageTitle("I'm Nat");
-  // }, []);
-
   return (
     <div className="flex flex-col space-y-12 w-full min-h-screen justify-items-center">
       <DisplayLabel fontSize="4xl">Natalie Pekker</DisplayLabel>
