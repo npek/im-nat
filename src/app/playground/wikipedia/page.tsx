@@ -62,11 +62,25 @@ export default function Wikipedia() {
             Dark Matter
           </DisplayLink>
           <DisplayLink
-            href="/playground/wikipedia/Enron_scandal"
+            href="/playground/wikipedia/Grigori_Rasputin"
             fontSize="3xl"
             smallFontSize="2xl"
           >
-            Enron Scandal
+            Rasputin
+          </DisplayLink>
+          <DisplayLink
+            href="/playground/wikipedia/List_of_generic_and_genericized_trademarks"
+            fontSize="3xl"
+            smallFontSize="2xl"
+          >
+            List of genericized trademarks
+          </DisplayLink>
+          <DisplayLink
+            href="/playground/wikipedia/Year_2000_problem"
+            fontSize="3xl"
+            smallFontSize="2xl"
+          >
+            {"Year 2000 problem (Y2K bug)"}
           </DisplayLink>
         </div>
       </div>
