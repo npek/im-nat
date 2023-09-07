@@ -1,4 +1,4 @@
-import { DocSentence } from "./hooks/useWiki";
+import { DocSentence } from "../../hooks/useWiki";
 
 export function processSentence(sentence: DocSentence): JSX.Element {
   let processedText: JSX.Element[] = [];

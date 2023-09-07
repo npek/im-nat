@@ -3,6 +3,9 @@ import "./css/glitch.css";
 import type { Metadata } from "next";
 import { Anonymous_Pro, Silkscreen } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import { PopUpProvider } from "./hooks/usePopUp";
+import Window from "./components/Window";
+import { WindowProvider } from "./hooks/useWindowContext";
 
 const anonymousPro = Anonymous_Pro({
   subsets: ["latin"],
@@ -53,7 +56,13 @@ export default function RootLayout({
         <meta name="twitter:card" content="I'm Nat" />
         <meta name="twitter:image" content="/twitter-preview.png" />
       </head>
-      <body>{children}</body>
+      <body>
+        <WindowProvider>
+          <Window>
+            <PopUpProvider>{children}</PopUpProvider>
+          </Window>
+        </WindowProvider>
+      </body>
       <Analytics />
     </html>
   );

@@ -1,13 +1,14 @@
 "use client";
-import Tab, { TabType } from "./Tab";
+import { useWindowContext } from "../hooks/useWindowContext";
+import Tab from "./Tab";
 
 type WindowProps = {
   children: React.ReactNode;
-  currentPage?: TabType;
-  pageTitle?: string;
 };
 
-const Window = ({ children, currentPage, pageTitle }: WindowProps) => {
+const Window = ({ children }: WindowProps) => {
+  const { currentPage, pageTitle } = useWindowContext();
+
   return (
     <main
       id="screen"
