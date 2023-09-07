@@ -60,12 +60,7 @@ export default function WikipediaArticle() {
             <DisplayLabel fontSize="4xl">Related pages</DisplayLabel>
             <div className="flex flex-col space-y-8 pt-4">
               {suggestedPages.map((sp, spIdx) => (
-                <DisplayLink
-                  key={spIdx}
-                  href={sp}
-                  fontSize="2xl"
-                  shouldGlitch={false}
-                >
+                <DisplayLink key={spIdx} href={sp} fontSize="2xl">
                   {sp}
                 </DisplayLink>
               ))}
