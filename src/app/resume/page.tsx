@@ -13,7 +13,12 @@ export default function Resume() {
           <div className="flex flex-col min-w-fit space-y-12">
             <div className="flex flex-col space-y-8 font-silkscreen sm:text-2xl text-xl underline">
               <a href="mailto:natalie.pekker@gmail.com?subject=Hello&body=Message%20body">
-                <button className="underline">natalie.pekker@gmail.com</button>
+                <label
+                  className="underline glitch"
+                  data-text="natalie.pekker@gmail.com"
+                >
+                  natalie.pekker@gmail.com
+                </label>
               </a>
               <DisplayLink
                 href="https://www.linkedin.com/in/natalie-pekker/"
