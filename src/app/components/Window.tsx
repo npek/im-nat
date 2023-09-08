@@ -48,7 +48,7 @@ const Window = ({ children }: WindowProps) => {
         </div>
       </div>
       <div
-        className={`flex flex-col mt-12 sm:px-24 px-8 md:py-32 py-24 selection:bg-default selection:text-dark`}
+        className={`flex flex-col top-0 shrink mt-12 sm:px-24 px-8 md:py-32 py-24 selection:bg-default selection:text-dark`}
       >
         {children}
       </div>

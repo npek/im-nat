@@ -4,7 +4,7 @@ import DisplayLink from "../components/DisplayLink";
 
 export default function Resume() {
   return (
-    <div className="flex flex-col space-y-12 w-full min-h-screen justify-items-center">
+    <div className="flex flex-col space-y-12 w-full justify-items-center">
       <DisplayLabel fontSize="4xl">Natalie Pekker</DisplayLabel>
       <div className="flex sm:flex-row flex-col sm:space-x-20 space-x-0 sm:space-y-0 space-y-12">
         <div className="flex flex-col min-w-fit space-y-12">
