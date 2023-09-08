@@ -7,7 +7,9 @@ export default function Playground() {
       <DisplayLink href="/playground/wikipedia" fontSize="4xl">
         Wikipedia
       </DisplayLink>
-      <DisplayLabel fontSize="4xl">More coming soon</DisplayLabel>
+      <DisplayLabel className="text-default/50" fontSize="4xl">
+        {"Soundcloud (coming soon)"}
+      </DisplayLabel>
     </div>
   );
 }
