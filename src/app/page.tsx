@@ -1,10 +1,11 @@
 "use client";
 import DisplayLabel from "./components/DisplayLabel";
 import DisplayLink from "./components/DisplayLink";
-// import { usePopUp } from "./hooks/usePopUp";
+import { usePopUp } from "./hooks/usePopUp";
+import EmailForm from "./components/EmailForm";
 
 export default function Home() {
-  // const { showPopUp } = usePopUp();
+  const { showPopUp } = usePopUp();
 
   return (
     <div className="flex md:flex-row flex-col justify-between md:space-y-0 space-y-16 md:space-x-4 space-x-0">
@@ -23,17 +24,17 @@ export default function Home() {
         <DisplayLink fontSize="4xl" href="https://github.com/npek/im-nat">
           Github project
         </DisplayLink>
-        {/* <button onClick={() => showPopUp(<label>hi</label>, "email")}>
-          Click me
-        </button> */}
       </div>
-      <DisplayLink
-        fontSize="2xl"
-        smallFontSize="xl"
-        href="mailto:natalie.pekker@gmail.com?subject=Hello&body=Message%20bod"
-      >
-        Natalie.pekker@gmail.com
-      </DisplayLink>
+      <div className="flex flex-col space-y-8 sm:items-end items-start">
+        <button
+          className="font-silkscreen text-3xl p-4 border-2 border-default"
+          onClick={() => showPopUp(<EmailForm />, "email")}
+        >
+          <label className="glitch" data-text="Reach out">
+            Reach out
+          </label>
+        </button>
+      </div>
     </div>
   );
 }

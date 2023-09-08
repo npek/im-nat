@@ -37,20 +37,6 @@ export default function RootLayout({
     >
       <head>
         <link rel="icon" href="/logo.svg" sizes="any" />
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_ID}`}
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${process.env.GA_ID}');
-          `,
-          }}
-        ></script>
         <link rel="apple-touch-icon" href="/nat-preview.png" />
         <meta property="og:image" content="/nat-preview.png"></meta>
         <meta name="twitter:card" content="I'm Nat" />
