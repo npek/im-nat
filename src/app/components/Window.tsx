@@ -12,7 +12,7 @@ const Window = ({ children }: WindowProps) => {
   return (
     <main
       id="screen"
-      className="flex min-h-screen min-w-screen max-h-screen max-w-screen overflow-y-scroll flex-col font-mono text-default border-2 border-default bg-dark"
+      className="flex min-h-[calc(100dvh)] min-w-screen max-h-[calc(100dvh)] max-w-screen overflow-y-scroll flex-col font-mono text-default border-2 border-default bg-dark"
     >
       {pageTitle && <title>{pageTitle}</title>}
       <div className="scanline z-[75]" />
