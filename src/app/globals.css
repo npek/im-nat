@@ -83,3 +83,8 @@ body {
   -ms-overflow-style: none;  /* IE 10+ */
   scrollbar-width: none;     /* Firefox & Edge */
 }
+
+input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    transition: background-color 0s 600000s, color 0s 600000s;
+  }
