@@ -14,6 +14,9 @@ export default function Home() {
         <DisplayLabel fontSize="4xl">
           I’m a senior frontend / mobile engineer
         </DisplayLabel>
+        <DisplayLabel fontSize="4xl">
+          I was an early Coinbase employee
+        </DisplayLabel>
         <DisplayLabel fontSize="4xl">I’m open to work</DisplayLabel>
         <DisplayLink fontSize="4xl" href="/resume">
           My resume

@@ -8,7 +8,7 @@ export default function Playground() {
         Wikipedia
       </DisplayLink>
       <DisplayLabel className="text-default/50" fontSize="4xl">
-        {"Soundcloud (coming soon)"}
+        {"Nat GPT (coming soon)"}
       </DisplayLabel>
     </div>
   );

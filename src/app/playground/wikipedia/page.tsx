@@ -53,6 +53,13 @@ export default function Wikipedia() {
           DB Cooper
         </DisplayLink>
         <DisplayLink
+          href="/playground/wikipedia/List_of_generic_and_genericized_trademarks"
+          fontSize="3xl"
+          smallFontSize="2xl"
+        >
+          List of genericized trademarks
+        </DisplayLink>
+        <DisplayLink
           href="/playground/wikipedia/Dark_Matter"
           fontSize="3xl"
           smallFontSize="2xl"
@@ -60,11 +67,11 @@ export default function Wikipedia() {
           Dark Matter
         </DisplayLink>
         <DisplayLink
-          href="/playground/wikipedia/List_of_generic_and_genericized_trademarks"
+          href="/playground/wikipedia/Marilyn_monroe"
           fontSize="3xl"
           smallFontSize="2xl"
         >
-          List of genericized trademarks
+          Marilyn Monroe
         </DisplayLink>
         <DisplayLink
           href="/playground/wikipedia/Grigori_Rasputin"
