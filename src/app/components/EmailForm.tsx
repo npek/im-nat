@@ -70,7 +70,7 @@ const EmailForm = () => {
           />
           <div className="flex w-full justify-center pt-4">
             <input
-              className="p-2 px-8 border-2 border-default w-fit disabled:border-default/50 disabled:text-default/50 enabled:bg-default enabled:text-dark"
+              className="p-2 px-8 border-2 border-default w-fit disabled:border-default/50 disabled:text-default/50 enabled:bg-default enabled:text-dark rounded-none"
               type="submit"
               value="send"
               disabled={nameEmpty || emailEmpty || subjectEmpty || messageEmpty}

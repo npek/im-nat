@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePopUp } from "../hooks/usePopUp";
 
 type PopUpProps = {
@@ -10,14 +10,38 @@ type PopUpProps = {
 const PopUp = ({ title, children }: PopUpProps) => {
   const { closePopUp } = usePopUp();
 
-  const [position, setPosition] = useState({ top: 200, left: 200 });
-  const [dragging, setDragging] = useState(false);
-  const [initialPos, setInitialPos] = useState({ x: 200, y: 200 });
+  const popupRef = useRef(null);
 
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [wasSmallScreen, setWasSmallScreen] = useState(false);
+  const [position, setPosition] = useState({ top: 100, left: 100 });
+  const [dragging, setDragging] = useState(false);
+  const [initialPos, setInitialPos] = useState({ x: 100, y: 100 });
 
   const updateScreenSize = () => {
-    setIsSmallScreen(window.innerWidth < 640); // Tailwind's default breakpoint for sm:
+    const smallScreenStatus = window.innerWidth < 640;
+    console.log(window.innerWidth);
+
+    // Check if the popupRef is set and we can get the position
+    if (popupRef.current) {
+      const popupLeft = (
+        popupRef.current as HTMLDivElement
+      ).getBoundingClientRect().left;
+
+      // Adjust this value as per your requirements; for instance, if popup's left is more than 80% of window width
+      if (popupLeft / window.innerWidth > 0.8 || smallScreenStatus) {
+        setPosition({ top: 0, left: 0 }); // Reset the position
+        setIsSmallScreen(true);
+        setWasSmallScreen(true); // Mark that it was small screen
+        return;
+      } else if (wasSmallScreen && !smallScreenStatus) {
+        // If it was previously small screen and now it's big
+        setPosition({ top: 100, left: 100 }); // Reset to default for big screen
+        setWasSmallScreen(false);
+      }
+    }
+
+    setIsSmallScreen(smallScreenStatus);
   };
 
   useEffect(() => {
@@ -44,8 +68,17 @@ const PopUp = ({ title, children }: PopUpProps) => {
       const deltaX = e.clientX - initialPos.x;
       const deltaY = e.clientY - initialPos.y;
 
-      const newTopPosition = Math.max(80, position.top + deltaY); // Ensure the popup's top position is never less than 80 pixels
-      const newLeftPosition = position.left + deltaX;
+      const newTopPosition = Math.max(80, position.top + deltaY); // Existing constraint for top position
+      let newLeftPosition = position.left + deltaX;
+
+      // Check if the popupRef is set and we can get the width
+      if (popupRef.current) {
+        const popupWidth = (popupRef.current as HTMLDivElement).offsetWidth;
+        newLeftPosition = Math.max(
+          0,
+          Math.min(window.innerWidth - popupWidth, newLeftPosition)
+        );
+      }
 
       setPosition({
         top: newTopPosition,
@@ -71,13 +104,14 @@ const PopUp = ({ title, children }: PopUpProps) => {
   return (
     <div
       className={`absolute flex flex-col ${
-        isSmallScreen ? "w-full h-full top-0 left-0 pt-[74px]" : "min-w-[40%]"
+        isSmallScreen ? "w-full h-full top-0 left-0 mt-[74px]" : "min-w-[40%]"
       } bg-dark border-2 border-default overflow-y-scroll`}
       style={
         !isSmallScreen
           ? { top: `${position.top}px`, left: `${position.left}px` }
           : undefined
       }
+      ref={popupRef}
     >
       <div
         id="popupNav"
@@ -101,13 +135,13 @@ const PopUp = ({ title, children }: PopUpProps) => {
         {children}
         <div className="flex flex-col space-y-8 items-center">
           <button
-            className="text-sm border-2 border-default p-2"
+            className="text-sm border-2 border-default p-2 rounded-none"
             onClick={closePopUp}
             hidden={!isSmallScreen}
           >
             exit
           </button>
-          <label className="text-xs pb-4" hidden={!isSmallScreen}>
+          <label className="text-xs pb-8" hidden={!isSmallScreen}>
             Try this pop up on desktop!
           </label>
         </div>

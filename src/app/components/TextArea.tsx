@@ -30,7 +30,7 @@ const TextArea = ({
       {title && <label>{title}</label>}
       <textarea
         name={name}
-        className="border-default border-2 w-full h-32 p-2 pl-6 text-md bg-transparent placeholder:text-default/50"
+        className="border-default rounded-none border-2 w-full h-32 p-2 pl-6 text-md bg-transparent placeholder:text-default/50"
         placeholder={placeholderText}
         onChange={handleChange}
         value={value}
