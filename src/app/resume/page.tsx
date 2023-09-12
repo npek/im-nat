@@ -61,7 +61,7 @@ export default function Resume() {
             <BulletPoint>REST</BulletPoint>
             <BulletPoint>GraphQL</BulletPoint>
             <BulletPoint>CocoaPods</BulletPoint>
-            <BulletPoint>Node.js</BulletPoint>
+            <BulletPoint>Vercel</BulletPoint>
             <BulletPoint>Git</BulletPoint>
             <BulletPoint>SnowflakeDB</BulletPoint>
           </div>
@@ -119,8 +119,14 @@ export default function Resume() {
               React and React Native with a 50/50 time split between the two.
             </BulletPoint>
             <BulletPoint>
-              Built Coinbase Tutorials (later known as Earn tutorials) in their
-              very first iteration.
+              Built{" "}
+              <a
+                className="underline italic"
+                href="https://medium.com/the-coinbase-blog/coinbase-makes-investing-easy-with-with-dollar-cost-averaging-1231b556b4bf"
+              >
+                Coinbase Tutorials
+              </a>{" "}
+              (later known as Earn tutorials) in their very first iteration.
             </BulletPoint>
             <BulletPoint>
               Served as a lead for the mental health employee resource group.
