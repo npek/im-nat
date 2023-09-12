@@ -6,6 +6,7 @@ import useWiki from "../../../hooks/useWiki";
 import { processSentence } from "../helpers";
 import { useWindowContext } from "@/app/hooks/useWindowContext";
 import { useEffect } from "react";
+import va from "@vercel/analytics";
 
 export default function WikipediaArticle() {
   const { setPageTitle } = useWindowContext();
@@ -18,6 +19,7 @@ export default function WikipediaArticle() {
   useEffect(() => {
     if (title) {
       setPageTitle(title);
+      va.track("Wikipedia page viewed", { title: title });
     }
   }, [title]);
 

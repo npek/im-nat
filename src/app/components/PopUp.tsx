@@ -20,7 +20,6 @@ const PopUp = ({ title, children }: PopUpProps) => {
 
   const updateScreenSize = () => {
     const smallScreenStatus = window.innerWidth < 640;
-    console.log(window.innerWidth);
 
     // Check if the popupRef is set and we can get the position
     if (popupRef.current) {
@@ -121,13 +120,13 @@ const PopUp = ({ title, children }: PopUpProps) => {
         <label className="text-dark text-md font-bold place-self-center">
           {title}
         </label>
-        <div className="flex flex-row space-x-1 pr-1 absolute w-full justify-end items-center">
+        <div className="pointer-events-auto flex flex-row space-x-1 pr-1 absolute w-full justify-end items-center">
           <div
-            className="border-dark border-2 w-5 h-5 p-0.5"
+            className="border-dark border-2 w-5 h-5 p-0.5 cursor-pointer"
             onClick={closePopUp}
             hidden={isSmallScreen}
           >
-            <img src="/icons/exit.svg" />
+            <img className="w-full h-full" src="/icons/exit.svg" />
           </div>
         </div>
       </div>
