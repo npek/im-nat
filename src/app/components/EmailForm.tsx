@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import TextInput from "./TextInput";
 import TextArea from "./TextArea";
+import va from "@vercel/analytics";
 
 const EmailForm = () => {
   const [loading, setLoading] = useState(false);
@@ -12,6 +13,7 @@ const EmailForm = () => {
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
+
     emailjs
       .sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
@@ -23,11 +25,13 @@ const EmailForm = () => {
         (result) => {
           setLoading(false);
           setSuccess(true);
+          va.track("Email sent");
         },
         (e) => {
           console.error(e.text);
           setLoading(false);
           setError(e.text);
+          va.track("Send email error", { errorText: e.text });
         }
       );
   };
@@ -40,7 +44,16 @@ const EmailForm = () => {
   return (
     <div className="flex items-center justify-center">
       {loading && <label>Loading...</label>}
-      {error && <label>{error}</label>}
+      {error && (
+        <div>
+          <label>
+            {
+              "Something went wrong. You can email me directly at natalie.pekker@gmail.com."
+            }
+          </label>
+          <label>{error}</label>
+        </div>
+      )}
       {success && <label>success</label>}
       {!loading && !error && !success && (
         <form

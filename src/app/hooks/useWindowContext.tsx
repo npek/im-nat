@@ -8,6 +8,7 @@ import {
 } from "react";
 import { TabType } from "../components/Tab";
 import { usePathname } from "next/navigation";
+import va from "@vercel/analytics";
 
 type WindowContextType = {
   currentPage: TabType | undefined;
@@ -20,6 +21,7 @@ const WindowContext = createContext<WindowContextType | undefined>(undefined);
 export const useWindowContext = () => {
   const context = useContext(WindowContext);
   if (!context) {
+    va.track("Error: called useWindowContext outside of provider");
     throw new Error("useWindowContext must be used within a WindowProvider");
   }
   return context;

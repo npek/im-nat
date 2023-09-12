@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import wtf from "wtf_wikipedia";
+import va from "@vercel/analytics";
 
 export interface DocSection {
   title: string | undefined;
@@ -140,10 +141,12 @@ const useWiki = (articleId: string | string[]) => {
           if (tempSuggestions.length > 0) {
             setSuggestedPages(tempSuggestions);
           } else {
+            va.track("Error: No related articles found");
             setError("No related articles found.");
           }
           setLoading(false);
         } catch (err) {
+          va.track("Error: No related articles found");
           setError("No related articles found.");
           setLoading(false);
         }
