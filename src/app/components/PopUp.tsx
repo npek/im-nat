@@ -103,8 +103,8 @@ const PopUp = ({ title, children }: PopUpProps) => {
   return (
     <div
       className={`absolute flex flex-col ${
-        isSmallScreen ? "w-full h-full top-0 left-0 mt-[74px]" : "min-w-[40%]"
-      } bg-dark border-2 border-default overflow-y-scroll`}
+        isSmallScreen ? "w-full h-full top-0 left-0 pt-[74px]" : "min-w-[40%]"
+      } bg-dark border-2 border-default max-h-[calc(100dvh)]`}
       style={
         !isSmallScreen
           ? { top: `${position.top}px`, left: `${position.left}px` }
@@ -130,7 +130,7 @@ const PopUp = ({ title, children }: PopUpProps) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col p-8 justify-between space-y-8 h-full">
+      <div className="overflow-y-scroll flex flex-col p-8 space-y-8">
         {children}
         <div className="flex flex-col space-y-8 items-center">
           <button
