@@ -1,6 +1,7 @@
 import BulletPoint from "../components/BulletPoint";
 import DisplayLabel from "../components/DisplayLabel";
 import DisplayLink from "../components/DisplayLink";
+import { ExperienceItem } from "../components/ExperienceItem";
 
 export default function Resume() {
   return (
@@ -70,84 +71,81 @@ export default function Resume() {
           <DisplayLabel className="pb-6" fontSize="3xl">
             Work Experience
           </DisplayLabel>
-          <div className="flex flex-col">
-            <label className="font-bold">
-              Senior Founding Software Engineer
-            </label>
-            <label className="pb-2">Coherent, October 2022 - July 2023</label>
-            <BulletPoint>
-              As a Founding Engineer and sole frontend engineer, built a
-              developer portal in React Typescript with Next.js and Tailwind
-              CSS, as well as a Postman-like application to query our API."
-            </BulletPoint>
-            <BulletPoint>
-              Transitioned to backend/data engineering for a quarter, using
-              Python and DBT to query and build extensive tables of decoded
-              blockchain data for Snowflake.
-            </BulletPoint>
-            <BulletPoint>
-              Designed a DAO portal with a retro-futuristic design system.
-            </BulletPoint>
-            <BulletPoint>
-              Rapidly built iterations of frontend demos for different ML models
-              to showcase the capabilities of our datasets to investors.
-            </BulletPoint>
-          </div>
-          <div className="flex flex-col">
-            <label className="font-bold">Frontend Software Engineer</label>
-            <label className="text-xl pb-2">
-              Innerwell, May 2022 - August 2023
-            </label>
-            <BulletPoint>
-              As the only engineer, planned and built a mobile application from
+          <ExperienceItem
+            jobTitle={"Software Engineer"}
+            company={"Pierre"}
+            startDate={"November 2023"}
+            endDate={"May 2024"}
+            bulletPoints={[
+              `Worked on a team of 5 that included the two inventors of Bootstrap`,
+              `Worked closely with Jacob Thornton to build Pierre's frontend product going into raising Series A`,
+              `Built realtime integration with Github Actions to stream all GH and non-GH jobs on a repository in one view`,
+              `Built @mentions integration for code reviews and comments`,
+              `Built status UI to show which team members are online and what they are currently working on or reviewing`,
+              `Built Vercel CLI`,
+            ]}
+          />
+          <ExperienceItem
+            jobTitle={"Senior Founding Software Engineer"}
+            company={"Coherent"}
+            startDate={"October 2022"}
+            endDate={"July 2023"}
+            bulletPoints={[
+              `As a Founding Engineer and sole frontend engineer, built a
+            developer portal in React Typescript with Next.js and Tailwind
+            CSS, as well as a Postman-like application to query our API."`,
+              `Transitioned to backend/data engineering for a quarter, using
+            Python and DBT to query and build extensive tables of decoded
+            blockchain data for Snowflake.`,
+              `Designed a DAO portal with a retro-futuristic design system.`,
+              `Rapidly built iterations of frontend demos for different ML models
+            to showcase the capabilities of our datasets to investors.`,
+            ]}
+          />
+          <ExperienceItem
+            jobTitle={"Frontend Software Engineer"}
+            company={"Innerwell"}
+            startDate={"May 2022"}
+            endDate={"August 2022"}
+            bulletPoints={[
+              `As the only engineer, planned and built a mobile application from
               scratch with features such as Zoom integration, scheduling,
               Electronic Health Record integration, HIPAA-compliant chat,
-              support chat, and music streaming.
-            </BulletPoint>
-          </div>
-          <div className="flex flex-col">
-            <label className="font-bold">
-              Frontend/Mobile Software Engineer
-            </label>
-            <label className="pb-2">Coinbase, August 2019 - May 2022</label>
-            <BulletPoint>
-              Initially worked on core iOS development in Swift on the main
-              Coinbase mobile application.
-            </BulletPoint>
-            <BulletPoint>
-              Transitioned to the Coinbase Card team and started working with
-              React and React Native with a 50/50 time split between the two.
-            </BulletPoint>
-            <BulletPoint>
-              Built{" "}
-              <a
-                className="underline italic"
-                href="https://medium.com/the-coinbase-blog/coinbase-makes-investing-easy-with-with-dollar-cost-averaging-1231b556b4bf"
-              >
-                Coinbase Tutorials
-              </a>{" "}
-              (later known as Earn tutorials) in their very first iteration.
-            </BulletPoint>
-            <BulletPoint>
-              Served as a lead for the mental health employee resource group.
-            </BulletPoint>
-          </div>
-          <div className="flex flex-col">
-            <label className="font-bold">iOS Software Engineering Intern</label>
-            <label className="pb-2">Coinbase, June 2018 - August 2018</label>
-            <BulletPoint>3rd iOS engineer on the Consumer team.</BulletPoint>
-            <BulletPoint>
-              Built an identity verification flow for European users.
-            </BulletPoint>
-          </div>
-          <div className="flex flex-col">
-            <label className="font-bold">iOS Software Engineering Intern</label>
-            <label className="pb-2">OpenTable, June 2017 - August 2017</label>
-            <BulletPoint>
-              Worked on iOS/Swift + Objective-C for the Guest Center
-              application.
-            </BulletPoint>
-          </div>
+              support chat, and music streaming.`,
+            ]}
+          />
+          <ExperienceItem
+            jobTitle={"Frontend/Mobile Software Engineer"}
+            company={"Coinbase"}
+            startDate={"August 2019"}
+            endDate={"May 2022"}
+            bulletPoints={[
+              `Initially worked on core iOS development in Swift on the main Coinbase mobile application.`,
+              `Transitioned to the Coinbase Card team and started working with
+              React and React Native with a 50/50 time split between the two.`,
+              `Built Coinbase Tutorials (later known as Earn tutorials) in their very first iteration.`,
+              `Served as a lead for the mental health employee resource group.`,
+            ]}
+          />
+          <ExperienceItem
+            jobTitle={"iOS Software Engineering Intern"}
+            company={"Coinbase"}
+            startDate={"June 2018"}
+            endDate={"August 2018"}
+            bulletPoints={[
+              `3rd iOS engineer on the Coinbase product team.`,
+              `Built an identity verification flow for European users.`,
+            ]}
+          />
+          <ExperienceItem
+            jobTitle={"iOS Software Engineering Intern"}
+            company={"OpenTable"}
+            startDate={"June 2017"}
+            endDate={"August 2017"}
+            bulletPoints={[
+              `Worked on iOS/Swift + Objective-C for the Guest Center application.`,
+            ]}
+          />
         </div>
       </div>
     </div>
