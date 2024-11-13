@@ -37,7 +37,7 @@ body {
   background: linear-gradient(
       to bottom,
       rgba(18, 16, 16, 0) 50%,
-      rgba(66, 47, 176, 0.1) 50%
+      rgba(66, 47, 176, 0.05) 50%
   );
   background-size: 100% 6px;
   z-index: 100;

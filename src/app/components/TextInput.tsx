@@ -33,7 +33,7 @@ const TextInput = ({
         name={name}
         value={value}
         onChange={handleChange}
-        className="border-default rounded-none border-2 w-full p-2 pl-6 text-md bg-dark placeholder:text-default/50 autofill:text-red-100"
+        className="border-default rounded-none border-2 w-full p-2 pl-4 text-md bg-dark placeholder:text-default/50 autofill:text-red-100"
         placeholder={placeholderText}
       />
     </div>
