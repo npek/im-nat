@@ -7,6 +7,7 @@ import va from "@vercel/analytics";
 type PopUpContextType = {
   showPopUp: (content: ReactNode, title?: string) => void;
   closePopUp: () => void;
+  popUpIsShowing: boolean;
 };
 
 const PopUpContext = createContext<PopUpContextType | undefined>(undefined);
@@ -38,8 +39,10 @@ export const PopUpProvider: React.FC<PopUpProviderProps> = ({ children }) => {
     setPopUpContent(null);
   };
 
+  const popUpIsShowing = popUpContent !== null;
+
   return (
-    <PopUpContext.Provider value={{ showPopUp, closePopUp }}>
+    <PopUpContext.Provider value={{ showPopUp, closePopUp, popUpIsShowing }}>
       {children}
       {popUpContent && <PopUp title={popUpTitle}>{popUpContent}</PopUp>}
     </PopUpContext.Provider>

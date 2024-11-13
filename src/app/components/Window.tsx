@@ -1,6 +1,7 @@
 "use client";
 import { useWindowContext } from "../hooks/useWindowContext";
 import Tab from "./Tab";
+import Image from "next/image";
 
 type WindowProps = {
   children: React.ReactNode;
@@ -19,13 +20,28 @@ const Window = ({ children }: WindowProps) => {
       <div className="flex flex-col pr-1 fixed border-default border-y-2 w-full z-50">
         <div className="flex flex-row justify-end bg-default items-center space-x-2 p-1">
           <div className="flex items-end border-dark border-2 w-5 h-5 p-0.5">
-            <img src="/icons/minimize.svg" />
+            <Image
+              src="/icons/minimize.svg"
+              alt="fake minimize window button"
+              width={80}
+              height={80}
+            />
           </div>
           <div className="flex p-0.5 border-dark border-2 w-5 h-5">
-            <img src="/icons/window.svg" />
+            <Image
+              src="/icons/window.svg"
+              alt="fake window button"
+              width={80}
+              height={80}
+            />
           </div>
           <div className="border-dark border-2 w-5 h-5 p-0.5">
-            <img src="/icons/exit.svg" />
+            <Image
+              src="/icons/exit.svg"
+              alt="fake exit button"
+              width={80}
+              height={80}
+            />
           </div>
         </div>
         <div className="flex flex-row overflow-x-scroll divide-x-1 w-full bg-dark pt-1">
