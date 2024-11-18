@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { usePopUp } from "../hooks/usePopUp";
+import Image from "next/image";
 
 type PopUpProps = {
   title?: string;
@@ -27,7 +28,6 @@ const PopUp = ({ title, children }: PopUpProps) => {
         popupRef.current as HTMLDivElement
       ).getBoundingClientRect().left;
 
-      // Adjust this value as per your requirements; for instance, if popup's left is more than 80% of window width
       if (popupLeft / window.innerWidth > 0.8 || smallScreenStatus) {
         setPosition({ top: 0, left: 0 }); // Reset the position
         setIsSmallScreen(true);
@@ -126,7 +126,7 @@ const PopUp = ({ title, children }: PopUpProps) => {
             onClick={closePopUp}
             hidden={isSmallScreen}
           >
-            <img className="w-full h-full" src="/icons/exit.svg" />
+            <Image src="/icons/exit.svg" alt="close pop up icon" />
           </div>
         </div>
       </div>
