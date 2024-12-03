@@ -1,24 +1,10 @@
 import "./globals.css";
 import "./css/glitch.css";
 import type { Metadata } from "next";
-import { Anonymous_Pro, Silkscreen } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { PopUpProvider } from "./hooks/usePopUp";
 import Window from "./components/Window";
 import { WindowProvider } from "./hooks/useWindowContext";
-
-const anonymousPro = Anonymous_Pro({
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "700"],
-  variable: "--font-anonymous",
-});
-const silkscreen = Silkscreen({
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400"],
-  variable: "--font-silkscreen",
-});
 
 export const metadata: Metadata = {
   title: "I'm Nat",
@@ -31,10 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${anonymousPro.variable} ${silkscreen.variable}`}
-    >
+    <html lang="en">
       <head>
         <link rel="icon" href="/logo.svg" sizes="any" />
         <link rel="apple-touch-icon" href="/nat-preview.png" />

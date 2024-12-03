@@ -24,13 +24,13 @@ export default function Home() {
               My resume
             </DisplayLink>
             <DisplayLink fontSize="4xl" href="https://github.com/npek/im-nat">
-              Github project
+              GitHub project
             </DisplayLink>
           </div>
         </div>
         <div className="flex flex-col space-y-8 sm:items-end items-start">
           <button
-            className="font-silkscreen text-3xl p-4 border-2 border-default"
+            className="font-header text-2xl p-3 border-2 rounded-md border-default"
             onClick={() => showPopUp(<EmailForm />, "email")}
           >
             <label className="glitch" data-text="Reach out">
