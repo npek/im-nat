@@ -22,7 +22,7 @@ const DisplayLink = ({
       href={href}
       className={`${
         className ?? ""
-      } glitch h-fit font-header w-fit decoration-3 underline text-${
+      } glitch h-fit font-silkscreen w-fit decoration-3 underline text-${
         smallFontSize ?? fontSize
       } sm:text-${fontSize}`}
       data-text={typeof children === "string" ? children : undefined}

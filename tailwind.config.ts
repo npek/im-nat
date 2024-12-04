@@ -14,13 +14,12 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
-        'dark': '#08001E',
+        'dark': '#0A0026',
         'default': '#33FF00',
       },
       fontFamily: {
         'anonymous': ['var(--font-anonymous'],
-        'silkscreen': ['var(--font-silkscreen)'],
-        'header': ['"Michoto"', 'mono'],
+        'silkscreen': ['var(--font-silkscreen)']
       },
       keyframes: {
         fadeIn: {

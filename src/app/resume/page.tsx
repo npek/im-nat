@@ -9,7 +9,7 @@ export default function Resume() {
       <DisplayLabel fontSize="4xl">Natalie Pekker</DisplayLabel>
       <div className="flex sm:flex-row flex-col sm:space-x-20 space-x-0 sm:space-y-0 space-y-12">
         <div className="flex flex-col min-w-fit space-y-12">
-          <div className="flex flex-col space-y-8 font-header sm:text-2xl text-xl underline">
+          <div className="flex flex-col space-y-8 font-silkscreen sm:text-2xl text-xl underline">
             <a href="mailto:natalie.pekker@gmail.com?subject=Hello&body=Message%20body">
               <label
                 className="underline glitch"
