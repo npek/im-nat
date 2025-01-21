@@ -126,7 +126,12 @@ const PopUp = ({ title, children }: PopUpProps) => {
             onClick={closePopUp}
             hidden={isSmallScreen}
           >
-            <Image src="/icons/exit.svg" alt="close pop up icon" />
+            <Image
+              src="/icons/exit.svg"
+              alt="close pop up icon"
+              width={12}
+              height={12}
+            />
           </div>
         </div>
       </div>

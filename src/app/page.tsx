@@ -3,6 +3,7 @@ import DisplayLabel from "./components/DisplayLabel";
 import DisplayLink from "./components/DisplayLink";
 import { usePopUp } from "./hooks/usePopUp";
 import EmailForm from "./components/EmailForm";
+import Image from "next/image";
 
 export default function Home() {
   const { showPopUp } = usePopUp();
@@ -29,13 +30,13 @@ export default function Home() {
           </div>
         </div>
         <div className="flex flex-col space-y-8 sm:items-end items-start">
-          <button
-            className="font-silkscreen text-3xl p-4 border-2 border-default"
-            onClick={() => showPopUp(<EmailForm />, "email")}
-          >
-            <label className="glitch" data-text="Reach out">
-              Reach out
-            </label>
+          <button onClick={() => showPopUp(<EmailForm />, "email")}>
+            <Image
+              src="/icons/envelope.svg"
+              width={80}
+              height={80}
+              alt={"envelope"}
+            />
           </button>
         </div>
       </div>
