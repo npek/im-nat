@@ -51,11 +51,11 @@ const Window = ({ children }: WindowProps) => {
             page="/resume"
             isSelected={currentPage == "resume"}
           />
-          <Tab
+          {/* <Tab
             type={"playground"}
             page="/playground"
             isSelected={currentPage == "playground"}
-          />
+          /> */}
           <Tab
             type={"wikipedia"}
             page="/playground/wikipedia"
