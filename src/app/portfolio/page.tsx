@@ -24,7 +24,7 @@ export default function Portfolio() {
   return (
     <div className="flex flex-col space-y-12 w-full justify-items-stretch flex-grow">
       <div className="flex flex-grow justify-center">
-        <DisplayLabel fontSize="5xl" smallFontSize="3xl" center>
+        <DisplayLabel fontSize="5xl" smallFontSize="4xl" center>
           Things I've Built
         </DisplayLabel>
       </div>
@@ -33,7 +33,7 @@ export default function Portfolio() {
           isSmallScreen ? "flex-col space-y-12" : "flex-row space-x-12"
         } justify-left`}
       >
-        <div className={`flex ${isSmallScreen && "grow justify-center"}`}>
+        <div className={`flex ${isSmallScreen && "grow justify-center p-8"}`}>
           <Image
             className="min-w-full shrink-0"
             width={600}
