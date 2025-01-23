@@ -51,6 +51,11 @@ const Window = ({ children }: WindowProps) => {
             page="/resume"
             isSelected={currentPage == "resume"}
           />
+          <Tab
+            type={"portfolio"}
+            page="/portfolio"
+            isSelected={currentPage == "portfolio"}
+          />
           {/* <Tab
             type={"playground"}
             page="/playground"

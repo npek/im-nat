@@ -5,6 +5,7 @@ type DisplayLabelProps = {
   children: string;
   fontSize: FontSize;
   smallFontSize?: FontSize;
+  center?: boolean;
 };
 
 const DisplayLabel = ({
@@ -12,12 +13,13 @@ const DisplayLabel = ({
   children,
   fontSize,
   smallFontSize,
+  center,
 }: DisplayLabelProps) => {
   return (
     <label
       className={`${className ?? ""} font-silkscreen w-fit text-${
         smallFontSize ?? fontSize
-      } sm:text-${fontSize}`}
+      } sm:text-${fontSize} ${center && "text-center"}`}
     >
       {children}
     </label>

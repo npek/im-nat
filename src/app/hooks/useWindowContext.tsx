@@ -55,6 +55,10 @@ export const WindowProvider = ({ children }: WindowProviderProps) => {
         tempPage = "wikipedia";
         setPageTitle("Nat's Wikipedia");
         break;
+      case "/portfolio":
+        tempPage = "portfolio";
+        setPageTitle("Nat's Portfolio");
+        break;
       default:
         tempPage = undefined;
         break;

@@ -1,6 +1,11 @@
 import { useRouter } from "next/navigation";
 
-export type TabType = "home" | "resume" | "playground" | "wikipedia";
+export type TabType =
+  | "home"
+  | "resume"
+  | "playground"
+  | "wikipedia"
+  | "portfolio";
 
 type TabProps = {
   type: TabType;
