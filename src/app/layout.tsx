@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { Anonymous_Pro, Silkscreen } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { PopUpProvider } from "./hooks/usePopUp";
-import Window from "./components/Window";
+import { Window } from "./components/Window";
 import { WindowProvider } from "./hooks/useWindowContext";
 
 const anonymousPro = Anonymous_Pro({

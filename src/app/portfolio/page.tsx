@@ -4,6 +4,7 @@ import BulletPoint from "../components/BulletPoint";
 import DisplayLabel from "../components/DisplayLabel";
 import DisplayLink from "../components/DisplayLink";
 import Image from "next/image";
+import { Toolbar } from "../components/Window";
 
 export default function Portfolio() {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -80,7 +81,7 @@ export default function Portfolio() {
       </div>
       <div className="flex flex-row grow space-x-12 justify-center md:justify-start md:ml-56">
         <div className="flex flex-col w-fit h-fit border border-4 border-default">
-          <div className="w-full h-8 bg-default"></div>
+          <Toolbar />
           <Image
             width={450}
             height={479}

@@ -7,7 +7,7 @@ type WindowProps = {
   children: React.ReactNode;
 };
 
-const Window = ({ children }: WindowProps) => {
+export const Window = ({ children }: WindowProps) => {
   const { currentPage, pageTitle } = useWindowContext();
 
   return (
@@ -18,32 +18,7 @@ const Window = ({ children }: WindowProps) => {
       {pageTitle && <title>{pageTitle}</title>}
       <div className="scanline z-[75]" />
       <div className="flex flex-col pr-1 fixed border-default border-y-2 w-full z-50">
-        <div className="flex flex-row justify-end bg-default items-center space-x-2 p-1">
-          <div className="flex items-end border-dark border-2 w-5 h-5 p-0.5">
-            <Image
-              src="/icons/minimize.svg"
-              alt="fake minimize window button"
-              width={80}
-              height={80}
-            />
-          </div>
-          <div className="flex p-0.5 border-dark border-2 w-5 h-5">
-            <Image
-              src="/icons/window.svg"
-              alt="fake window button"
-              width={80}
-              height={80}
-            />
-          </div>
-          <div className="border-dark border-2 w-5 h-5 p-0.5">
-            <Image
-              src="/icons/exit.svg"
-              alt="fake exit button"
-              width={80}
-              height={80}
-            />
-          </div>
-        </div>
+        <Toolbar />
         <div className="flex flex-row overflow-x-scroll divide-x-1 w-full bg-dark pt-1">
           <Tab type={"home"} page="/" isSelected={currentPage == "home"} />
           <Tab
@@ -77,4 +52,33 @@ const Window = ({ children }: WindowProps) => {
   );
 };
 
-export default Window;
+export const Toolbar = () => {
+  return (
+    <div className="flex flex-row justify-end bg-default items-center space-x-2 p-1">
+      <div className="flex items-end border-dark border-2 w-5 h-5 p-0.5">
+        <Image
+          src="/icons/minimize.svg"
+          alt="fake minimize window button"
+          width={80}
+          height={80}
+        />
+      </div>
+      <div className="flex p-0.5 border-dark border-2 w-5 h-5">
+        <Image
+          src="/icons/window.svg"
+          alt="fake window button"
+          width={80}
+          height={80}
+        />
+      </div>
+      <div className="border-dark border-2 w-5 h-5 p-0.5">
+        <Image
+          src="/icons/exit.svg"
+          alt="fake exit button"
+          width={80}
+          height={80}
+        />
+      </div>
+    </div>
+  );
+};
