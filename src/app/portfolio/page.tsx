@@ -30,7 +30,9 @@ export default function Portfolio() {
       </div>
       <div
         className={`flex ${
-          isSmallScreen ? "flex-col space-y-12" : "flex-row space-x-12"
+          isSmallScreen
+            ? "flex-col space-y-12"
+            : "flex-row space-x-12 items-center"
         } justify-left`}
       >
         <div className={`flex ${isSmallScreen && "grow justify-center p-8"}`}>
@@ -71,12 +73,19 @@ export default function Portfolio() {
               Appeared prominently for everyone using Coinbase on iOS
             </BulletPoint>
             <BulletPoint>
-              Built UX-heavy Instagram Story-like feature from scratch with Vicc
-              Alexander
+              Built UX-heavy Instagram Story-like feature from scratch
             </BulletPoint>
           </div>
         </div>
       </div>
+      {/* <div>
+        <Image
+          width={600}
+          height={479}
+          src="/images/tweet.png"
+          alt="Tweet screenshot"
+        />
+      </div> */}
       <div className="flex grow justify-center">
         <DisplayLabel fontSize="lg">WIP - more coming soon</DisplayLabel>
       </div>
