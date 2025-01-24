@@ -33,7 +33,7 @@ export default function Portfolio() {
           isSmallScreen
             ? "flex-col space-y-12"
             : "flex-row space-x-12 items-center"
-        } justify-left`}
+        } justify-left relative`}
       >
         <div className={`flex ${isSmallScreen && "grow justify-center p-8"}`}>
           <Image
@@ -78,14 +78,17 @@ export default function Portfolio() {
           </div>
         </div>
       </div>
-      {/* <div>
-        <Image
-          width={600}
-          height={479}
-          src="/images/tweet.png"
-          alt="Tweet screenshot"
-        />
-      </div> */}
+      <div className="flex flex-row grow space-x-12 justify-center md:justify-start md:ml-56">
+        <div className="flex flex-col w-fit h-fit border border-4 border-default">
+          <div className="w-full h-8 bg-default"></div>
+          <Image
+            width={450}
+            height={479}
+            src="/images/tweet.png"
+            alt="Tweet screenshot"
+          />
+        </div>
+      </div>
       <div className="flex grow justify-center">
         <DisplayLabel fontSize="lg">WIP - more coming soon</DisplayLabel>
       </div>
