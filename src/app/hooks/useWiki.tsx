@@ -6,6 +6,26 @@ export interface DocSection {
   title: string | undefined;
   paragraphs: DocParagraph[];
   hasTables: boolean;
+  references?: DocReference[];
+  links?: DocLink[];
+  citations?: DocReference[];
+  sectionType?:
+    | "regular"
+    | "references"
+    | "external_links"
+    | "see_also"
+    | "notes"
+    | "bibliography";
+}
+
+export interface DocReference {
+  title?: string;
+  authors?: string; // Combined author string
+  url?: string;
+  text?: string;
+  publisher?: string;
+  date?: string;
+  isbn?: string;
 }
 
 export interface DocParagraph {
@@ -23,11 +43,25 @@ export interface DocSentence {
 }
 
 export interface DocLink {
-  text: string;
+  text?: string;
   page?: string;
-  type: string;
-  site?: string;
+  type: "intenal" | "external";
 }
+
+const getSectionType = (
+  title: string | undefined
+): DocSection["sectionType"] => {
+  if (!title) return "regular";
+  const lowerTitle = title.toLowerCase();
+
+  if (lowerTitle.includes("reference")) return "references";
+  if (lowerTitle.includes("bibliography")) return "bibliography";
+  if (lowerTitle.includes("external link")) return "external_links";
+  if (lowerTitle.includes("see also")) return "see_also";
+  if (lowerTitle.includes("note")) return "notes";
+
+  return "regular";
+};
 
 const useWiki = (articleId: string | string[]) => {
   const [error, setError] = useState<string | null>(null);
@@ -50,14 +84,74 @@ const useWiki = (articleId: string | string[]) => {
         doc = result[0];
       } else if (result !== null) {
         doc = result;
+        console.log("Fetched article sections:", doc.sections());
+        console.log("Fetched article bibliography:", doc.citations());
+        // console.log("Fetched article links:", doc.links());
       }
 
       if (doc) {
         setTitle(doc.title() ?? "");
         var tempSections: DocSection[] = [];
+
         doc.sections().forEach((sec) => {
+          const internalLinks = sec.links();
+          console.log("Section links:", internalLinks);
           let tablesArray = [] as any[];
+          const sectionType = getSectionType(sec.title());
+
           if (!Array.isArray(sec.paragraphs())) return;
+
+          // Extract references for special sections
+          let references: DocReference[] = [];
+          let citations: DocReference[] = [];
+          let links: DocLink[] = [];
+          if (
+            sectionType === "references" ||
+            sectionType === "bibliography" ||
+            sectionType === "external_links"
+          ) {
+            console.log("Extracting references for section:", sec.title());
+            const refs = sec.references();
+            const bibs = sec.citations();
+            if (refs && Array.isArray(refs)) {
+              references = refs.map((ref: any) => ({
+                title: ref.title,
+                author: ref.author,
+                url: ref.url,
+                text: ref.encyclopedia || ref.title || ref.url || "",
+                publisher: ref.publisher,
+                date: ref.date,
+              }));
+            }
+            if (bibs && Array.isArray(bibs)) {
+              console.log("Bibliography entries:", bibs);
+              citations = bibs.map((bib: any) => {
+                // Extract and format authors
+                const authorParts: string[] = [];
+                let i = 1;
+                while (bib.data[`last${i}`] || bib.data[`first${i}`]) {
+                  const last = bib.data[`last${i}`] || '';
+                  const first = bib.data[`first${i}`] || '';
+                  if (last || first) {
+                    authorParts.push(`${last}${last && first ? ', ' : ''}${first}`);
+                  }
+                  i++;
+                }
+                const authorsString = authorParts.join('; ');
+
+                return {
+                  title: bib.data.title,
+                  authors: authorsString || bib.data.author,
+                  url: bib.data.url,
+                  publisher: bib.data.publisher,
+                  date: bib.data.year || bib.data.date,
+                  isbn: bib.data.isbn,
+                };
+              });
+            }
+
+            references = references.concat(citations);
+          }
 
           if ((sec.paragraphs() as any[]).length == 0) {
             if (Array.isArray(sec.tables())) {
@@ -68,6 +162,8 @@ const useWiki = (articleId: string | string[]) => {
               title: sec.title(),
               paragraphs: [],
               hasTables: tablesArray.length > 0,
+              sectionType,
+              references: references.length > 0 ? references : undefined,
             });
             return;
           }
@@ -90,6 +186,7 @@ const useWiki = (articleId: string | string[]) => {
             });
 
             let tempLists = p.lists().map((li: any) => {
+              console.log(li);
               let listSentences = li.data.map((lis: any) => {
                 return {
                   text: lis.text(),
@@ -110,9 +207,25 @@ const useWiki = (articleId: string | string[]) => {
             tempParagraphs.push({ sentences: tempSentences, lists: tempLists });
           });
 
+          let tempLinks: DocLink[] = [];
+          if (sec.title() === "External links") {
+            console.log("Extracting external links for section:", sec.title());
+            if (Array.isArray(internalLinks)) {
+              tempLinks = internalLinks
+                .filter((l) => l.type() === "external")
+                .map((l: any) => ({
+                  text: l.text(),
+                  page: l.page(),
+                  type: l.type(),
+                }));
+              links = tempLinks;
+            }
+          }
+
           if (Array.isArray(sec.tables())) {
             tablesArray = sec.tables() as any[];
           }
+
           // we cannot render tables yet so we have to handle for edge cases
           // where there is nothing in a section besides tables
           const noText =
@@ -124,9 +237,14 @@ const useWiki = (articleId: string | string[]) => {
             title: sec.title(),
             paragraphs: noText ? [] : tempParagraphs,
             hasTables: tablesArray.length > 0,
+            sectionType,
+            references: references.length > 0 ? references : undefined,
+            citations: citations.length > 0 ? citations : undefined,
+            links: links.length > 0 ? links : undefined,
           });
         });
         setSections(tempSections);
+
         setLoading(false);
       } else {
         // get article suggestions

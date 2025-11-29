@@ -34,6 +34,8 @@ export default function WikipediaArticle() {
         sections.map((sec, idx) => (
           <div key={idx} className="section flex flex-col space-y-4">
             <DisplayLabel fontSize="2xl">{sec.title ?? ""}</DisplayLabel>
+
+            {/* Regular content */}
             {sec.paragraphs.map((para, pIdx) => (
               <div key={pIdx} className="flex flex-col">
                 <div>
@@ -55,6 +57,42 @@ export default function WikipediaArticle() {
                 </div>
               </div>
             ))}
+
+            {/* Special sections - References, Bibliography, External Links */}
+            {sec.citations && sec.citations.length > 0 && (
+              <div className="flex flex-col space-y-3">
+                {sec.citations.map((citation, rIdx) => (
+                  <div key={rIdx} className="text-base opacity-90">
+                    <span className="mr-2">{rIdx + 1}.</span>
+                    {citation.authors && (
+                      <span className="italic">{citation.authors}. </span>
+                    )}
+                    {citation.date && <span>({citation.date}). </span>}
+                    {citation.title && (
+                      <>
+                        {citation.url ? (
+                          <a
+                            href={citation.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline italic glitch"
+                            data-text={citation.title}
+                          >
+                            {citation.title}
+                          </a>
+                        ) : (
+                          <span className="italic">{citation.title}</span>
+                        )}
+                        <span>. </span>
+                      </>
+                    )}
+                    {citation.publisher && <span>{citation.publisher}. </span>}
+                    {citation.isbn && <span>ISBN {citation.isbn}.</span>}
+                  </div>
+                ))}
+              </div>
+            )}
+
             {sec.paragraphs.length == 0 && sec.hasTables && (
               <label className="text-default/70">
                 Tables are not yet supported on Nat's Wikipedia.
@@ -64,7 +102,7 @@ export default function WikipediaArticle() {
         ))}
       {suggestedPages && (
         <div className="flex flex-col space-y-8">
-          <DisplayLabel fontSize="4xl">Related pages</DisplayLabel>
+          <DisplayLabel textType="h3">Related pages</DisplayLabel>
           <div className="flex flex-col space-y-8 pt-4">
             {suggestedPages.map((sp, spIdx) => (
               <DisplayLink key={spIdx} href={sp} fontSize="2xl">
