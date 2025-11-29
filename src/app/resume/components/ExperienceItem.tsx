@@ -1,10 +1,11 @@
-import BulletPoint from "./BulletPoint";
+import DisplayLabel from "@/app/components/DisplayLabel";
+import BulletPoint from "../../components/BulletPoint";
 
 interface ExperienceProps {
   jobTitle: string;
   company: string;
   startDate: string;
-  endDate: string;
+  endDate?: string;
   bulletPoints: string[];
 }
 
@@ -17,10 +18,12 @@ export const ExperienceItem = ({
 }: ExperienceProps) => {
   return (
     <div className="flex flex-col">
-      <label className="font-bold">{jobTitle}</label>
-      <label className="pb-2">
-        {company}, {startDate} - {endDate}
-      </label>
+      <DisplayLabel className="font-bold" textType="h3">
+        {jobTitle}
+      </DisplayLabel>
+      <DisplayLabel className="pb-2">
+        {company}, {startDate} - {endDate ? `${endDate}` : "Present"}
+      </DisplayLabel>
       {bulletPoints.map((b, index) => {
         return <BulletPoint key={jobTitle + index}>{b}</BulletPoint>;
       })}

@@ -1,22 +1,22 @@
 import BulletPoint from "../components/BulletPoint";
 import DisplayLabel from "../components/DisplayLabel";
 import DisplayLink from "../components/DisplayLink";
-import { ExperienceItem } from "../components/ExperienceItem";
+import { ExperienceItem } from "./components/ExperienceItem";
 
 export default function Resume() {
   return (
     <div className="flex flex-col space-y-12 w-full justify-items-center">
-      <DisplayLabel fontSize="4xl">Natalie Pekker</DisplayLabel>
+      <DisplayLabel textType="h1">Natalie Pekker</DisplayLabel>
       <div className="flex sm:flex-row flex-col sm:space-x-20 space-x-0 sm:space-y-0 space-y-12">
         <div className="flex flex-col min-w-fit space-y-12">
           <div className="flex flex-col space-y-8 font-silkscreen sm:text-2xl text-xl underline">
             <a href="mailto:natalie.pekker@gmail.com?subject=Hello&body=Message%20body">
-              <label
+              <DisplayLabel
                 className="underline glitch"
                 data-text="natalie.pekker@gmail.com"
               >
                 natalie.pekker@gmail.com
-              </label>
+              </DisplayLabel>
             </a>
             <DisplayLink
               href="https://www.linkedin.com/in/natalie-pekker/"
@@ -27,20 +27,20 @@ export default function Resume() {
             </DisplayLink>
           </div>
           <div className="flex flex-col text-xl">
-            <DisplayLabel className="pb-6" fontSize="3xl">
+            <DisplayLabel className="pb-6" textType="h2">
               Education
             </DisplayLabel>
-            <label className="font-bold">
+            <DisplayLabel className="font-bold" textType="h3">
               University of Southern California
-            </label>
-            <label>
+            </DisplayLabel>
+            <DisplayLabel>
               2015-2019
               <br />
               Computer Science
-            </label>
+            </DisplayLabel>
           </div>
           <div className="flex flex-col">
-            <DisplayLabel className="pb-6" fontSize="3xl">
+            <DisplayLabel className="pb-6" textType="h2">
               Languages
             </DisplayLabel>
             <BulletPoint>React</BulletPoint>
@@ -54,7 +54,7 @@ export default function Resume() {
             <BulletPoint>Java</BulletPoint>
           </div>
           <div className="flex flex-col">
-            <DisplayLabel className="pb-6" fontSize="3xl">
+            <DisplayLabel className="pb-6" textType="h2">
               Technologies
             </DisplayLabel>
             <BulletPoint>Tailwind CSS</BulletPoint>
@@ -68,9 +68,21 @@ export default function Resume() {
           </div>
         </div>
         <div className="flex flex-col space-y-6 text-xl">
-          <DisplayLabel className="pb-6" fontSize="3xl">
+          <DisplayLabel className="pb-6" textType="h2">
             Work Experience
           </DisplayLabel>
+          <ExperienceItem
+            jobTitle={"Head of Frontend Engineering"}
+            company={"Stealth Startup"}
+            startDate={"March 2025"}
+            bulletPoints={[
+              `Wireframed and designed the initial product for 3 separate partner apps`,
+              `Built the entire frontend MVP in React Typescript with Next.js by myself`,
+              `Built a HIPPA-complient chat integration including video calls, screen sharing, and text`,
+              `Built our CMS website with a custom proxy so it seamlessly integrates with our main app`,
+              `Highly optimized our web vitals for SEO and performance`,
+            ]}
+          />
           <ExperienceItem
             jobTitle={"Software Engineer"}
             company={"Pierre"}

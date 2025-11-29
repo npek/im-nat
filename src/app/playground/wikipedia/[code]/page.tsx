@@ -21,11 +21,11 @@ export default function WikipediaArticle() {
       setPageTitle(title);
       va.track("Wikipedia page viewed", { title: title });
     }
-  }, [title]);
+  }, [title, setPageTitle]);
 
   return (
     <div className="flex flex-col space-y-12">
-      <DisplayLabel fontSize="4xl">{title ?? ""}</DisplayLabel>
+      <DisplayLabel textType="h1">{title ?? ""}</DisplayLabel>
       {loading && !error && (
         <DisplayLabel fontSize="4xl">Loading...</DisplayLabel>
       )}

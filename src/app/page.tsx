@@ -13,7 +13,9 @@ export default function Home() {
       <div className="flex md:flex-row flex-col justify-between md:space-y-0 space-y-16 md:space-x-4 space-x-0">
         <div className="flex flex-col justify-between space-y-16">
           <div className="flex flex-col space-y-8 justify-items-center">
-            <DisplayLabel fontSize="4xl">Hi, I'm Natalie Pekker</DisplayLabel>
+            <DisplayLabel fontSize="4xl" textType="h1">
+              Hi, I'm Natalie Pekker
+            </DisplayLabel>
             <DisplayLabel fontSize="4xl">
               I’m a senior frontend / mobile engineer
             </DisplayLabel>

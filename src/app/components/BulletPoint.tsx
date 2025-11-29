@@ -1,12 +1,14 @@
+import SimpleText from "./SimpleText";
+
 type BulletPointProps = {
   children: React.ReactNode;
 };
 
 const BulletPoint = ({ children }: BulletPointProps) => {
   return (
-    <div className="flex flex-row text-xl text-default space-x-8">
+    <div className="flex flex-row space-x-8">
       <label>*</label>
-      <label>{children}</label>
+      <SimpleText>{children}</SimpleText>
     </div>
   );
 };

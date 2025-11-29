@@ -19,9 +19,7 @@ export default function Wikipedia() {
   return (
     <div className="flex flex-col space-y-16">
       <div className="flex flex-col space-y-6">
-        <DisplayLabel fontSize="5xl" smallFontSize="4xl">
-          Nat's Wikipedia
-        </DisplayLabel>
+        <DisplayLabel textType="h1">Nat's Wikipedia</DisplayLabel>
         <DisplayLabel fontSize="2xl">
           {"(watch me play around with Tailwind CSS and Wikipedia APIs)"}
         </DisplayLabel>
