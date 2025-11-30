@@ -33,7 +33,7 @@ export default function WikipediaArticle() {
       {sections &&
         sections.map((sec, idx) => (
           <div key={idx} className="section flex flex-col space-y-4">
-            <DisplayLabel fontSize="2xl">{sec.title ?? ""}</DisplayLabel>
+            <DisplayLabel textType="h2">{sec.title ?? ""}</DisplayLabel>
 
             {/* Regular content */}
             {sec.paragraphs.map((para, pIdx) => (

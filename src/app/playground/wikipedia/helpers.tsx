@@ -5,6 +5,8 @@ export function processSentence(sentence: DocSentence): JSX.Element {
   let currentText = sentence.text;
 
   sentence.links.forEach((link) => {
+    if (!link.text) return; // Skip links without text
+
     const linkIndex = currentText.indexOf(link.text);
     if (linkIndex !== -1) {
       // Add text before the link

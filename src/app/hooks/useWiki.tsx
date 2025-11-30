@@ -45,7 +45,8 @@ export interface DocSentence {
 export interface DocLink {
   text?: string;
   page?: string;
-  type: "intenal" | "external";
+  type: string;
+  site?: string;
 }
 
 const getSectionType = (
