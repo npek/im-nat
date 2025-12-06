@@ -4,12 +4,12 @@ import DisplayLink from "@/app/components/DisplayLink";
 import DisplayLabel from "@/app/components/DisplayLabel";
 import SearchBar from "@/app/components/SearchBar";
 import { useRouter } from "next/navigation";
-import va from "@vercel/analytics";
+import { track } from "@vercel/analytics";
 
 export default function Wikipedia() {
   const router = useRouter();
   const handleSearch = async (searchTerm: string) => {
-    va.track("Wikipedia search", { searchTerm: searchTerm });
+    track("Wikipedia search", { searchTerm: searchTerm });
     let consolidatedTerm = /[^a-zA-Z0-9-_ ]/.test(searchTerm)
       ? searchTerm.replace(/ /g, "_")
       : searchTerm;

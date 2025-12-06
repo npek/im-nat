@@ -1,7 +1,8 @@
 import { DocSentence } from "../../hooks/useWiki";
+import { ReactElement } from "react";
 
-export function processSentence(sentence: DocSentence): JSX.Element {
-  let processedText: JSX.Element[] = [];
+export function processSentence(sentence: DocSentence): ReactElement {
+  let processedText: ReactElement[] = [];
   let currentText = sentence.text;
 
   sentence.links.forEach((link) => {

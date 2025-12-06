@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import TextInput from "./TextInput";
 import TextArea from "./TextArea";
-import va from "@vercel/analytics";
+import { track } from "@vercel/analytics";
 
 const EmailForm = () => {
   const [loading, setLoading] = useState(false);
@@ -25,13 +25,13 @@ const EmailForm = () => {
         (result) => {
           setLoading(false);
           setSuccess(true);
-          va.track("Email sent");
+          track("Email sent");
         },
         (e) => {
           console.error(e.text);
           setLoading(false);
           setError(e.text);
-          va.track("Send email error", { errorText: e.text });
+          track("Send email error", { errorText: e.text });
         }
       );
   };

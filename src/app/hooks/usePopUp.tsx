@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, ReactNode, useState } from "react";
 import PopUp from "../components/PopUp";
-import va from "@vercel/analytics";
+import { track } from "@vercel/analytics";
 
 type PopUpContextType = {
   showPopUp: (content: ReactNode, title?: string) => void;
@@ -15,7 +15,7 @@ const PopUpContext = createContext<PopUpContextType | undefined>(undefined);
 export const usePopUp = () => {
   const context = useContext(PopUpContext);
   if (!context) {
-    va.track("usePopUp used outside of a PopUpProvider");
+    track("usePopUp used outside of a PopUpProvider");
     throw new Error("usePopUp must be used within a PopUpProvider");
   }
   return context;
@@ -32,7 +32,7 @@ export const PopUpProvider: React.FC<PopUpProviderProps> = ({ children }) => {
   const showPopUp = (content: ReactNode, title?: string) => {
     setPopUpContent(content);
     setPopUpTitle(title);
-    va.track("Popup shown", { title: title ?? "" });
+    track("Popup shown", { title: title ?? "" });
   };
 
   const closePopUp = () => {

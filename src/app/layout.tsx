@@ -48,8 +48,8 @@ export default function RootLayout({
             <PopUpProvider>{children}</PopUpProvider>
           </Window>
         </WindowProvider>
+        <Analytics />
       </body>
-      <Analytics />
     </html>
   );
 }

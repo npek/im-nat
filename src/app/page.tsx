@@ -1,9 +1,13 @@
 "use client";
+import dynamic from "next/dynamic";
 import DisplayLabel from "./components/DisplayLabel";
 import DisplayLink from "./components/DisplayLink";
 import { usePopUp } from "./hooks/usePopUp";
-import EmailForm from "./components/EmailForm";
 import Image from "next/image";
+
+const EmailForm = dynamic(() => import("./components/EmailForm"), {
+  ssr: false,
+});
 
 export default function Home() {
   const { showPopUp } = usePopUp();
