@@ -1,17 +1,8 @@
-"use client";
-import dynamic from "next/dynamic";
 import DisplayLabel from "./components/DisplayLabel";
 import DisplayLink from "./components/DisplayLink";
-import { usePopUp } from "./hooks/usePopUp";
-import Image from "next/image";
-
-const EmailForm = dynamic(() => import("./components/EmailForm"), {
-  ssr: false,
-});
+import EmailButton from "./components/EmailButton";
 
 export default function Home() {
-  const { showPopUp } = usePopUp();
-
   return (
     <div className="flex flex-col space-y-16">
       <div className="flex md:flex-row flex-col justify-between md:space-y-0 space-y-16 md:space-x-4 space-x-0">
@@ -35,16 +26,7 @@ export default function Home() {
             </DisplayLink>
           </div>
         </div>
-        <div className="flex flex-col space-y-8 sm:items-end items-start">
-          <button onClick={() => showPopUp(<EmailForm />, "email")}>
-            <Image
-              src="/icons/envelope.svg"
-              width={80}
-              height={80}
-              alt={"envelope"}
-            />
-          </button>
-        </div>
+        <EmailButton />
       </div>
       <div className="flex flex-col space-y-4">
         <label>
